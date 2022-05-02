@@ -1,3 +1,4 @@
+
 package factory;
 
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,4 @@ class StudentFactoryTest {
         Student student = StudentFactory.createStudent("Chante ALicia", "Lewis","chantel@yahoo.com","12345","ADP01");
         System.out.println(student.toString());
         assertNotNull(student);
-
     }
-}
