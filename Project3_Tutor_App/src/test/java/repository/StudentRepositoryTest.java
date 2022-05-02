@@ -1,7 +1,0 @@
-package repository;
-
-
-
-class StudentRepositoryTest {
-
-}
