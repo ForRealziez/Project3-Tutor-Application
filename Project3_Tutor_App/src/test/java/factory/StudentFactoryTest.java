@@ -1,0 +1,7 @@
+package factory;
+
+
+class StudentFactoryTest {
+
+
+}
