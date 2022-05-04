@@ -1,3 +1,8 @@
+/**
+ * @author MoeGammad Tasreeq Adams
+ * Student no: 216173027
+ * Project assignment
+ */
 package za.ac.cput.repository;
 
 import za.ac.cput.entity.StudentRegister;
