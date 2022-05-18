@@ -1,11 +1,11 @@
 package za.ac.cput.entity;
 /* Tutor.java
-Entity for the Student
+Entity for the Tutor
 Author: 214258041_Lelihle Gazi
  */
 
 public class Tutor {
-    private int id;
+    private String id;
     private String username;
     private String email;
     private String firstName;
@@ -22,11 +22,11 @@ public class Tutor {
         this.dateCreated = builder.dateCreated;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -121,6 +121,11 @@ public class Tutor {
 
         public Tutor.Builder setStudentNumber(String studentNumber) {
             this.studentNumber = studentNumber;
+            return this;
+        }
+
+        public Tutor.Builder setDateCreated(String dateCreated) {
+            this.dateCreated = dateCreated;
             return this;
         }
 
