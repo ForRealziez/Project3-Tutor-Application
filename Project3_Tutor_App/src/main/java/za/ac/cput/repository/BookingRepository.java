@@ -55,9 +55,11 @@ public class BookingRepository implements IBookingRepository {
         public boolean delete(String id) {
             Booking bookingToDelete = read(id);
             if(bookingToDelete == null){
+                System.out.println("Nothing to delete: ");
                 return false;
             }
             bookingDB.remove(bookingToDelete);
+            System.out.println("Delete success: ");
             return true;
         }
 

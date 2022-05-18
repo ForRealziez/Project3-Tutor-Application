@@ -19,7 +19,7 @@ public class BookingFactory {
                 .Builder()
                 .setTutorId(tutorId)
                 .setCourseId(courseId)
-                .setStartDate(endDate)
+                .setStartDate(startDate)
                 .setEndDate(endDate)
                 .build();
     }
