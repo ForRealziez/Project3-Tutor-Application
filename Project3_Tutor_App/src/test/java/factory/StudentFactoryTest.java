@@ -12,7 +12,8 @@ class StudentFactoryTest {
     @Test
     public void test() {
 
-        Student student = StudentFactory.createStudent("Chante ALicia", "Lewis","chantel@yahoo.com","12345","ADP01");
+        Student student = StudentFactory.createStudent("Chante ALicia", "Lewis", "chantel@yahoo.com", "12345", "ADP01");
         System.out.println(student.toString());
         assertNotNull(student);
     }
+}
