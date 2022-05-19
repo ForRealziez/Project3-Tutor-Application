@@ -24,6 +24,8 @@ public class TutorBookingGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Load a new form
+                new BookingGUIForm();
+                //TutorBookingGUI(false);
             }
         });
 
