@@ -13,6 +13,7 @@ public class Booking {
 
 
     public Booking(Builder builder) {
+        this.id = builder.id;
         this.tutorId = builder.tutorId;
         this.courseId = builder.courseId;
         this.startDate = builder.startDate;
@@ -72,11 +73,16 @@ public class Booking {
     }
     //Implementing Builder Pattern
     public static class Builder {
+        private String id;
         private String tutorId;
         private String courseId;
         private String startDate;
         private String endDate;
 
+        public Booking.Builder setId(String id) {
+            this.id = id;
+            return this;
+        }
         public Booking.Builder setTutorId(String tutorId) {
             this.tutorId = tutorId;
             return this;
@@ -98,6 +104,7 @@ public class Booking {
         }
 
         public Booking.Builder copy(Booking booking) {
+            this.id = booking.id;
             this.tutorId = booking.tutorId;
             this.courseId = booking.courseId;
             this.startDate = booking.startDate;

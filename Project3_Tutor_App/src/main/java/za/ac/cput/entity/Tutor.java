@@ -14,6 +14,7 @@ public class Tutor {
     private String dateCreated;
 
     public Tutor(Builder builder){
+        this.id = builder.id;
         this.username = builder.username;
         this.email = builder.email;
         this.firstName = builder.firstName;
@@ -93,6 +94,7 @@ public class Tutor {
 
     //Implementing Builder Pattern
     public static class Builder{
+        private String id;
         private String username;
         private String email;
         private String firstName;
@@ -100,6 +102,10 @@ public class Tutor {
         private String studentNumber;
         private String dateCreated;
 
+        public Tutor.Builder setId(String id) {
+            this.id = id;
+            return this;
+        }
         public Tutor.Builder setUsername(String username) {
             this.username = username;
             return this;
@@ -131,6 +137,7 @@ public class Tutor {
         }
 
         public Tutor.Builder copy(Tutor tutor){
+            this.id = tutor.id;
             this.username = tutor.username;
             this.email = tutor.email;
             this.firstName = tutor.firstName;

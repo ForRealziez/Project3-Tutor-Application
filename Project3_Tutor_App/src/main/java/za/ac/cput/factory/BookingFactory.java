@@ -7,16 +7,17 @@ import za.ac.cput.entity.Booking;
 import za.ac.cput.util.Helper;
 
 public class BookingFactory {
-    public static Booking createBooking(String tutorId, String courseId, String startDate, String endDate)
+    public static Booking createBooking(String id, String tutorId, String courseId, String startDate, String endDate)
     {
 
-        if (Helper.isEmpty(tutorId) || Helper.isEmpty(courseId) || Helper.isEmpty(startDate) || Helper.isEmpty(endDate) ) {
+        if (Helper.isEmpty(id) || Helper.isEmpty(tutorId) || Helper.isEmpty(courseId) || Helper.isEmpty(startDate) || Helper.isEmpty(endDate) ) {
             return null;
         }
 
 
         return new Booking
                 .Builder()
+                .setId(id)
                 .setTutorId(tutorId)
                 .setCourseId(courseId)
                 .setStartDate(startDate)
