@@ -16,3 +16,4 @@ class StudentFactoryTest {
         System.out.println(student.toString());
         assertNotNull(student);
     }
+}
