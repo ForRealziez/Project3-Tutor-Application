@@ -20,7 +20,7 @@ public class BookingGUIForm {
     public BookingGUIForm() {
         BookingRepository repository = BookingRepository.getRepository();
 
-        String [] tutors = {"Lelihle","Siphwe", "Anothony", "John"};
+        String [] tutors = {"Lelihle","Siphiwe", "Anthony", "John"};
         this.comboBox1 = new JComboBox<>(tutors);
 
         String[] courses = { "ADP","ITS","PRT","ADT", "PM"};
