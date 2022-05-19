@@ -70,7 +70,7 @@ public class Booking {
                 ", endDate='" + endDate + '\'' +
                 '}';
     }
-
+    //Implementing Builder Pattern
     public static class Builder {
         private String tutorId;
         private String courseId;

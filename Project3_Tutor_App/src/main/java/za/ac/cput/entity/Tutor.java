@@ -91,6 +91,7 @@ public class Tutor {
                 '}';
     }
 
+    //Implementing Builder Pattern
     public static class Builder{
         private String username;
         private String email;

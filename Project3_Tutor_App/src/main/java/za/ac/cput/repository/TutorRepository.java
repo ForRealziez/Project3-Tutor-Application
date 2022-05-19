@@ -55,9 +55,11 @@ public class TutorRepository implements ITutorRepository {
     public boolean delete(String id) {
         Tutor tutorToDelete = read(id);
         if(tutorToDelete == null){
+            System.out.println("Nothing to delete: ");
             return false;
         }
         tutorDB.remove(tutorToDelete);
+        System.out.println("Delete success: ");
         return true;
     }
 
