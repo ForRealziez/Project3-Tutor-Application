@@ -10,7 +10,7 @@ class BookingFactoryTest {
 
     @Test
     void createBooking() {
-        Booking booking = BookingFactory.createBooking("214258041LG","ITS","2022-03-17","2022-04-04");
+        Booking booking = BookingFactory.createBooking("214258041LG","LEE","ITS","2022-03-17","2022-04-04");
         assertNotNull(booking);
 
     }

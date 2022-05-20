@@ -33,7 +33,7 @@ public class BookingGUIForm {
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
                 LocalDate localDate = LocalDate.now();
                 LocalDate enddate = LocalDate.now().plusDays(1);
-                Booking booking = BookingFactory.createBooking(comboBox1.getSelectedItem().toString(),
+                Booking booking = BookingFactory.createBooking("214567889",comboBox1.getSelectedItem().toString(),
                         comboBox2.getSelectedItem().toString(),dtf.format(localDate),dtf.format(enddate));
 
                 repository.create(booking);
