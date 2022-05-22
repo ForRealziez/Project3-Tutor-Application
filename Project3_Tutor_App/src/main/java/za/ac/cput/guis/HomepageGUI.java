@@ -4,8 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class HomepageGUI extends JFrame implements ActionListener{
+public class HomepageGUI extends JFrame implements ActionListener {
+
+    private JFrame mainFrame;
 
     private JPanel panelNorth;
     private JPanel panelCenter;
@@ -34,6 +38,8 @@ public class HomepageGUI extends JFrame implements ActionListener{
 
         font1 = new Font("Times New Roman", Font.BOLD | Font.ITALIC,50);
         font2 = new Font("Courier", Font.ITALIC,25);
+
+        mainFrame = new JFrame("Homepage");
 
         panelNorth = new JPanel();
         panelCenter = new JPanel();
@@ -66,9 +72,15 @@ public class HomepageGUI extends JFrame implements ActionListener{
                 "https://opa.cput.ac.za/ <br/>");
 
         btnLogout = new JButton("Logout");
+        btnLogout.setBorder(BorderFactory.createLineBorder(Color.black));
+        btnLogout.setPreferredSize(new Dimension(27, 27));
+
         btnStudentDetails = new JButton("Student Details");
+        btnStudentDetails.setBorder(BorderFactory.createLineBorder(Color.black));
         btnTutors = new JButton("Tutors");
+        btnTutors.setBorder(BorderFactory.createLineBorder(Color.black));
         btnShop = new JButton("Purchases");
+        btnShop.setBorder(BorderFactory.createLineBorder(Color.black));
 
         //Background colours
         panelNorth.setBackground(Color.CYAN);
@@ -102,23 +114,38 @@ public class HomepageGUI extends JFrame implements ActionListener{
         btnShop.addActionListener(this);
         btnLogout.addActionListener(this);
 
-        this.add(panelNorth, BorderLayout.NORTH);
-        this.add(panelCenter, BorderLayout.CENTER);
-        this.add(panelSouth, BorderLayout.SOUTH);
-        this.getContentPane().setBackground(Color.RED);
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        mainFrame.add(panelNorth, BorderLayout.NORTH);
+        mainFrame.add(panelCenter, BorderLayout.CENTER);
+        mainFrame.add(panelSouth, BorderLayout.SOUTH);
+        mainFrame.getContentPane().setBackground(Color.RED);
+        setUndecorated(true);
+        mainFrame.getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+        mainFrame.setSize(650,500);
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.setVisible(true);
+        mainFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);}
+        });
 
     }
 
     public void actionPerformed(ActionEvent e){
 
-        //Add Action Listeners for Buttons
-    }
+        switch (e.getActionCommand()) {
+
+            case "Logout" -> {
+
+                System.exit(0);
+
+                break;}
+
+        }}
 
     public static void main(String[] args) {
         new HomepageGUI().setGUI();
     }
 
 }
+
