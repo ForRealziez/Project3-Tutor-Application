@@ -7,6 +7,7 @@ import za.ac.cput.repository.BookingRepository;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -17,7 +18,7 @@ public class BookingGUIForm {
     private JComboBox comboBox4;
     private JButton createButton;
 
-    public BookingGUIForm() {
+    public BookingGUIForm() throws SQLException, ClassNotFoundException {
         BookingRepository repository = BookingRepository.getRepository();
 
         String [] tutors = {"Lelihle","Siphiwe", "Anthony", "John"};
@@ -36,7 +37,13 @@ public class BookingGUIForm {
                 Booking booking = BookingFactory.createBooking("214567889",comboBox1.getSelectedItem().toString(),
                         comboBox2.getSelectedItem().toString(),dtf.format(localDate),dtf.format(enddate));
 
-                repository.create(booking);
+                try {
+                    repository.create(booking);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

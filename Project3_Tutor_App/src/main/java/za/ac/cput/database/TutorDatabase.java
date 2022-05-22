@@ -1,7 +1,10 @@
 package za.ac.cput.database;
 
+import za.ac.cput.entity.Booking;
 import za.ac.cput.entity.Tutor;
 import za.ac.cput.factory.TutorFactory;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
@@ -19,9 +22,9 @@ public class TutorDatabase extends BaseConnection
         Tutor tutor = null;
 
         while (resultSet.next()){
-            tutor = TutorFactory.createTutor(resultSet.getString(0), resultSet.getString(1),
-                    resultSet.getString(2),resultSet.getString(3), resultSet.getString(4),
-                    resultSet.getString(5),resultSet.getString(6));
+            tutor = TutorFactory.createTutor(resultSet.getString(1), resultSet.getString(2),
+                    resultSet.getString(3),resultSet.getString(4), resultSet.getString(5),
+                    resultSet.getString(6),resultSet.getString(7));
         }
 
         Close();
@@ -36,9 +39,9 @@ public class TutorDatabase extends BaseConnection
 
 
         while (resultSet.next()){
-            Tutor tutor = TutorFactory.createTutor(resultSet.getString(0), resultSet.getString(1),
-                    resultSet.getString(2),resultSet.getString(3), resultSet.getString(4),
-                    resultSet.getString(5),resultSet.getString(6));
+            Tutor tutor = TutorFactory.createTutor(resultSet.getString(1), resultSet.getString(2),
+                    resultSet.getString(3),resultSet.getString(4), resultSet.getString(5),
+                    resultSet.getString(6),resultSet.getString(7));
             tutors.add(tutor);
         }
 
@@ -47,13 +50,53 @@ public class TutorDatabase extends BaseConnection
         return tutors;
     }
 
-    public boolean CreateTutors(String query) throws SQLException {
-        ResultSet resultSet = Execute(query);
+    public boolean CreateTutors(String query,Tutor tutor) throws SQLException {
+        PreparedStatement statement = _connection.prepareStatement(query);
 
-        boolean result = resultSet.rowInserted();
+        statement.setString(1,tutor.getId());
+        statement.setString(2, tutor.getUsername());
+        statement.setString(3, tutor.getEmail());
+        statement.setString(4, tutor.getFirstName());
+        statement.setString(5, tutor.getLastName());
+        statement.setString(6, tutor.getStudentNumber());
+        statement.setString(7, tutor.getDateCreated());
+        boolean result = statement.execute();
 
         Close();
 
         return result;
     }
+
+    public boolean UpdateTutor(String query,Tutor tutor) throws SQLException {
+        PreparedStatement statement = _connection.prepareStatement(query);
+
+
+        statement.setString(1,tutor.getUsername());
+        statement.setString(2,tutor.getEmail());
+        statement.setString(3,tutor.getFirstName());
+        statement.setString(4,tutor.getLastName());
+        statement.setString(5,tutor.getStudentNumber());
+        statement.setString(6,tutor.getDateCreated());
+        statement.setString(7,tutor.getId());
+
+        boolean result = statement.execute();
+
+        Close();
+
+        return result;
+    }
+
+    public boolean DeleteTutor(String query, String id) throws SQLException {
+
+        PreparedStatement statement = _connection.prepareStatement(query);
+
+        statement.setString(1,id);
+
+        boolean result = statement.execute();
+
+        Close();
+
+        return result;
+    }
+
 }

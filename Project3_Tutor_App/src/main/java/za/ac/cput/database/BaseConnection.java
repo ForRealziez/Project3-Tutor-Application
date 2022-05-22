@@ -3,15 +3,15 @@ package za.ac.cput.database;
 import java.sql.*;
 
 public class BaseConnection {
-    private Connection _connection;
+    protected Connection _connection;
     public BaseConnection() throws SQLException, ClassNotFoundException {
         setConnecion();
     }
 
     protected void setConnecion() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection= DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sonoo","root","root");
+                "jdbc:mysql:// root@localhost:3306/bookingdb");
         _connection = connection;
     }
 
@@ -21,6 +21,13 @@ public class BaseConnection {
         return resultSet;
     }
 
+    protected boolean ExecuteInsert(String query) throws SQLException {
+        Statement statement = _connection.createStatement();
+
+        boolean result = statement.execute(query);
+
+        return  result;
+    }
     protected void Close() throws SQLException {
         _connection.close();
     }

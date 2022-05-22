@@ -3,6 +3,7 @@ package za.ac.cput.guis;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class TutorBookingGUI {
     private JButton bookNowButton;
@@ -24,7 +25,13 @@ public class TutorBookingGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Load a new form
-                new BookingGUIForm();
+                try {
+                    new BookingGUIForm();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
                 //TutorBookingGUI(false);
             }
         });

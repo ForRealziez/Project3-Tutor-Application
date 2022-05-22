@@ -9,7 +9,6 @@ import java.util.Set;
 
 public class BookingDatabase extends BaseConnection
 {
-    private Connection _connection;
     public BookingDatabase() throws SQLException, ClassNotFoundException {
         super();
     }
@@ -21,8 +20,9 @@ public class BookingDatabase extends BaseConnection
         Booking booking = null;
 
         while (resultSet.next()){
-            booking = BookingFactory.createBooking(resultSet.getString(0), resultSet.getString(1),
-                    resultSet.getString(2),resultSet.getString(3), resultSet.getString(4));
+            booking = BookingFactory.createBooking(resultSet.getString(1), resultSet.getString(2),
+                    resultSet.getString(3),resultSet.getString(4), resultSet.getString(5));
+            break;
         }
 
         Close();
@@ -37,8 +37,8 @@ public class BookingDatabase extends BaseConnection
 
 
         while (resultSet.next()){
-            Booking booking = BookingFactory.createBooking(resultSet.getString(0), resultSet.getString(1),
-                    resultSet.getString(2),resultSet.getString(3), resultSet.getString(4));
+            Booking booking = BookingFactory.createBooking(resultSet.getString(1), resultSet.getString(2),
+                    resultSet.getString(3),resultSet.getString(4), resultSet.getString(5));
             bookings.add(booking);
         }
 
@@ -47,10 +47,47 @@ public class BookingDatabase extends BaseConnection
         return bookings;
     }
 
-    public boolean CreateBooking(String query) throws SQLException {
-        ResultSet resultSet = Execute(query);
+    public boolean CreateBooking(String query,Booking booking) throws SQLException, ClassNotFoundException {
 
-        boolean result = resultSet.rowInserted();
+        PreparedStatement statement = _connection.prepareStatement(query);
+
+        statement.setString(1,booking.getId());
+        statement.setString(2, booking.getTutorId());
+        statement.setString(3, booking.getCourseId());
+        statement.setString(4, booking.getStartDate());
+        statement.setString(5, booking.getEndDate());
+
+        boolean result = statement.execute();
+
+        Close();
+
+        return result;
+    }
+
+    public boolean UpdateBooking(String query,Booking booking) throws SQLException {
+        PreparedStatement statement = _connection.prepareStatement(query);
+
+
+        statement.setString(1,booking.getTutorId());
+        statement.setString(2,booking.getCourseId());
+        statement.setString(3,booking.getStartDate());
+        statement.setString(4,booking.getEndDate());
+        statement.setString(5,booking.getId());
+
+        boolean result = statement.execute();
+
+        Close();
+
+        return result;
+    }
+
+    public boolean DeleteBooking(String query, String id) throws SQLException {
+
+        PreparedStatement statement = _connection.prepareStatement(query);
+
+        statement.setString(1,id);
+
+        boolean result = statement.execute();
 
         Close();
 
