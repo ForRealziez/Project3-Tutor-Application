@@ -13,7 +13,6 @@ public class BookingDatabase extends BaseConnection
         super();
     }
 
-
     public Booking GetBooking(String bookinQuery) throws SQLException {
         ResultSet resultSet = Execute(bookinQuery);
 
@@ -58,7 +57,6 @@ public class BookingDatabase extends BaseConnection
         statement.setString(5, booking.getEndDate());
 
         boolean result = statement.execute();
-
         Close();
 
         return result;
@@ -67,7 +65,6 @@ public class BookingDatabase extends BaseConnection
     public boolean UpdateBooking(String query,Booking booking) throws SQLException {
         PreparedStatement statement = _connection.prepareStatement(query);
 
-
         statement.setString(1,booking.getTutorId());
         statement.setString(2,booking.getCourseId());
         statement.setString(3,booking.getStartDate());
@@ -75,12 +72,10 @@ public class BookingDatabase extends BaseConnection
         statement.setString(5,booking.getId());
 
         boolean result = statement.execute();
-
         Close();
 
         return result;
     }
-
     public boolean DeleteBooking(String query, String id) throws SQLException {
 
         PreparedStatement statement = _connection.prepareStatement(query);

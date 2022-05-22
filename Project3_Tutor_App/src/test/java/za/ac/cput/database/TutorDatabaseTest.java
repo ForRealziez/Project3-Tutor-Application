@@ -18,8 +18,6 @@ class TutorDatabaseTest {
         Tutor result = database.GetTutor("select * from tutors where id = '1'");
         assertEquals("1",result.getId());
     }
-
-
     @Test
     void getTutors() throws SQLException, ClassNotFoundException {
         TutorDatabase database = new TutorDatabase();
@@ -27,7 +25,6 @@ class TutorDatabaseTest {
         Set<Tutor> results = database.GetTutors("select * from tutors");
         assertEquals("1",results.stream().findFirst().get().getId());
     }
-
     @Test
     void createTutors() throws SQLException, ClassNotFoundException {
         TutorDatabase database = new TutorDatabase();

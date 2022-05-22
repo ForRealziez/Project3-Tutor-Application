@@ -1,6 +1,5 @@
 package za.ac.cput.database;
 
-import za.ac.cput.entity.Booking;
 import za.ac.cput.entity.Tutor;
 import za.ac.cput.factory.TutorFactory;
 

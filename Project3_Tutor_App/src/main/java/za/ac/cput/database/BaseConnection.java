@@ -14,13 +14,11 @@ public class BaseConnection {
                 "jdbc:mysql:// root@localhost:3306/bookingdb");
         _connection = connection;
     }
-
     protected ResultSet Execute(String query) throws SQLException {
         Statement statement = _connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
         return resultSet;
     }
-
     protected boolean ExecuteInsert(String query) throws SQLException {
         Statement statement = _connection.createStatement();
 

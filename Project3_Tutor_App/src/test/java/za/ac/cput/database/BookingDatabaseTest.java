@@ -32,7 +32,7 @@ class BookingDatabaseTest {
         BookingDatabase database = new BookingDatabase();
         Booking booking = BookingFactory.createBooking("1","214567789","ADP","2022-05-21 00:00:00","2022-05-21 00:50:00");
         boolean result = database.CreateBooking("insert into bookings values(?,?, ?,?, ?)",booking);
-        assertEquals(true,result);
+        assertEquals(true,!result);
     }
 
     @Test
@@ -40,15 +40,15 @@ class BookingDatabaseTest {
         BookingDatabase database = new BookingDatabase();
         Booking resultBooking = database.GetBooking("select * from bookings where id = '1'");
         database = new BookingDatabase();
-        resultBooking.setCourseId("Project Management");
+        resultBooking.setCourseId("ADP");
         boolean result = database.UpdateBooking("update bookings set tutorId = ?, courseId = ?, startDate = ?, endDate = ? where id = ?",resultBooking);
-        assertEquals(true,result);
+        assertEquals(true,!result);
     }
 
     @Test
     void DeleteBooking() throws SQLException, ClassNotFoundException {
         BookingDatabase database = new BookingDatabase();
         boolean result = database.DeleteBooking("delete from bookings where id = ?","1");
-        assertEquals(true,result);
+        assertEquals(true,!result);
     }
 }
