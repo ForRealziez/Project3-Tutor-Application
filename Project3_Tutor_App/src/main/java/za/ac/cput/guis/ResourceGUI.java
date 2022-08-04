@@ -7,7 +7,6 @@ package za.ac.cput.guis;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
-import java.util.Objects;
 import javax.swing.*;
 
 
@@ -20,7 +19,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     JPanel panelAvailability, panelCenter, panelNorth, panelSouth;
     JRadioButton radAvailable , radUnavailable;
     ButtonGroup AvailabilityButtonGroup;
-    JButton btnNext, btnExit;
+    JButton btnHome,btnNext, btnExit;
     Font ft1, ft2, ft3;
     Connection con;
     PreparedStatement pst;
@@ -31,7 +30,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     {
         super("Resources");
 
-        ft1 = new Font("Times New Roman", Font.ITALIC, 16);
+        ft1 = new Font("Times New Roman", Font.PLAIN, 16);
         ft2 = new Font("Verdana", Font.PLAIN, 14);
         ft3 = new Font("Verdana", Font.BOLD, 30);
 
@@ -90,11 +89,15 @@ public class ResourceGUI extends JFrame implements ActionListener
         panelAvailability.add(radAvailable);
         panelAvailability.add(radUnavailable);
 
+        btnHome = new JButton("Home");
+        btnHome.setForeground(Color.white);
+        btnHome.setBackground(Color.DARK_GRAY);
+        btnHome.setFont(ft1);
 
-        btnNext = new JButton("Update");
+        btnNext = new JButton("Search");
         btnNext.setForeground(Color.white);
         btnNext.setBackground(Color.DARK_GRAY);
-        btnNext.setFont(ft1);
+        btnNext.setFont(new Font("Times New Roman", Font.BOLD, 25));
 
         btnExit = new JButton("Exit");
         btnExit.setForeground(Color.white);
@@ -121,7 +124,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         updateItemName();
 
         panelCenter.setLayout(new GridLayout(4, 7));
-        panelNorth.setLayout(new GridLayout(1, 1));
+        panelNorth.setLayout(new GridLayout(0, 1));
 
         panelNorth.add(lblHeading);
 
@@ -139,11 +142,17 @@ public class ResourceGUI extends JFrame implements ActionListener
 
         panelCenter.add(panelAvailability);
 
+//        panelSouth.add(panelButton);
         panelSouth.add(btnNext);
-        panelSouth.add(btnExit);
+        panelNorth.add(btnHome);
+        panelNorth.add(btnExit);
+
+
+
 
         btnNext.addActionListener(this);
         btnExit.addActionListener(this);
+        btnHome.addActionListener(this);
 
         this.add(panelNorth, BorderLayout.NORTH);
         this.add(panelCenter, BorderLayout.CENTER);
@@ -157,7 +166,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if (e.getActionCommand().equals("Update"))
+        if (e.getActionCommand().equals("Search"))
         {
             try {
 
@@ -205,7 +214,11 @@ public class ResourceGUI extends JFrame implements ActionListener
                 ex.printStackTrace();
             }
         }
-
+        else if (e.getSource() == btnHome)
+        {
+            dispose();
+            new HomepageGUI().setGUI();
+        }
         else if (e.getSource() == btnExit)
         {
             System.exit(0);
@@ -216,7 +229,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/tutorapplication", "root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/bookingdb", "root","");
             System.out.println("Database Connection Success");
         }
         catch (ClassNotFoundException ex)
