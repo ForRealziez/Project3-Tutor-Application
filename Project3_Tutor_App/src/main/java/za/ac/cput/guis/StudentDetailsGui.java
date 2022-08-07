@@ -1,6 +1,7 @@
 
 package za.ac.cput.guis;
 
+import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -29,6 +30,7 @@ public class StudentDetailsGui extends javax.swing.JFrame {
 	PreparedStatement pst;
 	ResultSet rs;	
 	
+	//Coonect to database
 	public void Connect(){
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -41,6 +43,7 @@ public class StudentDetailsGui extends javax.swing.JFrame {
 		}
 	}
 	
+	//Retrieve data from database and load onto table
 	public void Student_Load(){
 	    
 		try {
@@ -92,7 +95,7 @@ public class StudentDetailsGui extends javax.swing.JFrame {
         jTableData = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         lblDetailsView = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -102,7 +105,7 @@ public class StudentDetailsGui extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 255));
 
-        lblStuDetails.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblStuDetails.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblStuDetails.setText("Student Details");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -110,14 +113,14 @@ public class StudentDetailsGui extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(299, 299, 299)
+                .addGap(314, 314, 314)
                 .addComponent(lblStuDetails)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblStuDetails)
                 .addGap(18, 18, 18))
         );
@@ -147,6 +150,11 @@ public class StudentDetailsGui extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTableData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableData);
 
         btnSearch.setText("Search");
@@ -163,10 +171,10 @@ public class StudentDetailsGui extends javax.swing.JFrame {
             }
         });
 
-        btnCancel.setText("Cancel");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
+                btnClearActionPerformed(evt);
             }
         });
 
@@ -200,18 +208,18 @@ public class StudentDetailsGui extends javax.swing.JFrame {
                         .addGap(128, 128, 128)
                         .addComponent(btnBack)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCancel)
+                        .addComponent(btnClear)
                         .addGap(18, 18, 18)
                         .addComponent(btnExit))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDetailsView, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -232,75 +240,95 @@ public class StudentDetailsGui extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(lblStuDetailsDatabse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSearch)
-                            .addComponent(btnBack)
-                            .addComponent(btnCancel)
-                            .addComponent(btnExit)))
-                    .addComponent(jScrollPane2))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearch)
+                    .addComponent(btnBack)
+                    .addComponent(btnClear)
+                    .addComponent(btnExit))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 	
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-
-/*try {
-      String url = "jdbc:mysql://localhost:3306/studentmanage";
-      String user = "root";
-      String password = "";
+		// Code for searching using StudentID
+		try {  
+           String str = txtStudentID.getText();  
+           PreparedStatement st = con.prepareStatement("select * from student where studentid=?");  
+           st.setString(1, str);  
+            //Excuting Query  
+            ResultSet rs = st.executeQuery();  
+            if (rs.next()) {  
+                String s = rs.getString("StudentID");  
+                String s1 = rs.getString("name");  
+                String s2 = rs.getString("surname");  
+                String s3 = rs.getString("email_address");  
+				String s4 = rs.getString("course");  
+                //Sets Records in TextFields.  
+				txtStuDisplay.setText("Student number: " + s + "\nStudent name: " + s1 + "\nStudent surname: " +s2+ "\nEmail Address: " +s3+ "\nCourse: " +s4); 
+            } else {  
+                JOptionPane.showMessageDialog(null, "StudentID not found");  
+            }  
+            //Create Exception Handler  
+        } catch (HeadlessException | SQLException ex) {  
+            System.out.println(ex);  
+        }  
     
-      Connection con = DriverManager.getConnection(url, user, password);
-    
-      String query = "SELECT * FROM student";
-    
-      Statement pst = con.createStatement();
-      ResultSet rs = pst.executeQuery(query);
-    
-      String columns[] = { "StudentID", "name", "surname","email_address","course"};
-      String data[][] = new String[5][5];
-    
-      int i = 0;
-      while (rs.next()) {
-        String id = rs.getString("StudentID");
-        String name = rs.getString("name");
-        String sname = rs.getString("surname");
-		String email = rs.getString("email_address");
-		 String course = rs.getString("course");
-        data[i][0] = id + "";
-        data[i][1] = name;
-        data[i][2] = sname;
-		data[i][3] = email;
-		data[i][4] = course;
-        i++;
-	  }
-	  DefaultTableModel model = new DefaultTableModel(data, columns);
-	   jTableData.setModel(model);
-	  } catch(SQLException e) {
-      e.printStackTrace();
-    }*/
-
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        // Back button (full action to be implemented when application is integrated)
 		 JOptionPane.showMessageDialog(null, "When button clicked it goes to previous GUI");
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+		//Code to clear/cancel form
 		txtStudentID.setText("");
     	txtStuDisplay.setText("");
-    }//GEN-LAST:event_btnCancelActionPerformed
+    }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-		System.exit(0);
+       // Code to exit system
+	   
+	  int response = JOptionPane.showConfirmDialog(rootPane, "Would you like to exit?");
+	   
+	   if(response == JOptionPane.YES_OPTION){
+		   System.exit(0);
+	   }
 
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void jTableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDataMouseClicked
+		//Code to select/click data in table and display in textfield
+		int row = jTableData.getSelectedRow();
+		String tc = jTableData.getModel().getValueAt(row, 0).toString();
+		try {  
+           PreparedStatement st = con.prepareStatement("select * from student where studentid="+tc+"");  
+        //Excuting Query  
+            ResultSet rs = st.executeQuery();  		
+            if (rs.next()) {  
+                String s = rs.getString("StudentID");  
+                String s1 = rs.getString("name");  
+                String s2 = rs.getString("surname");  
+                String s3 = rs.getString("email_address");  
+				String s4 = rs.getString("course");  
+				   
+		//Sets Records in TextFields.  
+				txtStuDisplay.setText("Student number: " + s + "\nStudent name: " + s1 + "\nStudent surname: " +s2+ "\nEmail Address: " +s3+ "\nCourse: " +s4); 
+            } else {  
+                JOptionPane.showMessageDialog(null,"Student does not exist!");  
+            }  
+            //Create Exception Handler  
+        } catch (HeadlessException | SQLException ex) {  
+            System.out.println(ex);  
+        } 
+    }//GEN-LAST:event_jTableDataMouseClicked
 
 	/**
 	 * @param args the command line
@@ -341,7 +369,7 @@ public class StudentDetailsGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnSearch;
     private javax.swing.JPanel jPanel1;
