@@ -1,4 +1,8 @@
 package za.ac.cput.guis;
+/* TutorBookingGUI.java
+GUI for the TutorBooking
+Author: 214258041_Lelihle Gazi
+ */
 
 import za.ac.cput.database.BookingDatabase;
 import za.ac.cput.database.TutorDatabase;
