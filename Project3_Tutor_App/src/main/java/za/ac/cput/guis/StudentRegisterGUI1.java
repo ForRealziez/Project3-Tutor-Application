@@ -55,11 +55,11 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel1.setBackground(new java.awt.Color(23, 37, 42));
 
-        jPanel2.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(43, 122, 120));
 
-        registerHeader.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        registerHeader.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         registerHeader.setForeground(new java.awt.Color(255, 255, 255));
         registerHeader.setText("Student Register Form");
 
@@ -68,9 +68,9 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addComponent(registerHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addComponent(registerHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,27 +80,27 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        noticeHeader.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        noticeHeader.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         noticeHeader.setForeground(new java.awt.Color(255, 51, 51));
         noticeHeader.setText("*Fill in all required fields ");
 
-        jLabelFirstName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelFirstName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelFirstName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFirstName.setText("First Names");
 
-        jLabelLastName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelLastName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelLastName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLastName.setText("Surname");
 
-        jLabelCourseEnrolled.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelCourseEnrolled.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelCourseEnrolled.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCourseEnrolled.setText("Course Enrolled");
 
-        jLabelEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelEmail.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmail.setText("Email Address");
 
-        jLabelPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Password");
 
@@ -111,7 +111,7 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
             }
         });
 
-        jButtonLogin.setBackground(new java.awt.Color(0, 204, 204));
+        jButtonLogin.setBackground(new java.awt.Color(58, 175, 169));
         jButtonLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonLogin.setForeground(new java.awt.Color(255, 255, 255));
         jButtonLogin.setText("Login");
@@ -121,7 +121,7 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
             }
         });
 
-        jButtonRegister.setBackground(new java.awt.Color(0, 204, 204));
+        jButtonRegister.setBackground(new java.awt.Color(58, 175, 169));
         jButtonRegister.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonRegister.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRegister.setText("Register");
@@ -131,7 +131,7 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
             }
         });
 
-        jLabelpasswordReType.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelpasswordReType.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelpasswordReType.setForeground(new java.awt.Color(255, 255, 255));
         jLabelpasswordReType.setText("Re type Password");
 
@@ -264,8 +264,10 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
         }else if(!password.equals(rtpass)){
             JOptionPane.showMessageDialog(null,"retype password");
         }else{
-
-        PreparedStatement ps;
+            
+            JOptionPane.showMessageDialog(this, "registered without access to database");
+            /*
+            *PreparedStatement ps;
         String query = "INSERT INTO `students`(`firstNames`, `lastName`, `courseEnrolled`, `email`, `password`) VALUES (?,?,?,?,?)";
         
         try{
@@ -283,6 +285,8 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
         } catch(SQLException ex){
             Logger.getLogger(StudentRegisterGUI1.class.getName()).log(Level.SEVERE, null, ex);
         }
+            */
+        
         }
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 

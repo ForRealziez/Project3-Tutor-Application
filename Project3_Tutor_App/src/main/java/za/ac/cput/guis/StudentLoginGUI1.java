@@ -48,19 +48,19 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Student login");
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel1.setBackground(new java.awt.Color(23, 37, 42));
 
-        lableEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lableEmail.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lableEmail.setForeground(new java.awt.Color(255, 255, 255));
         lableEmail.setText("Email Address");
 
-        lablePassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lablePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lablePassword.setForeground(new java.awt.Color(255, 255, 255));
         lablePassword.setText("Password ");
 
-        jPanel2.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(43, 122, 120));
 
-        lableHeader.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lableHeader.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
         lableHeader.setForeground(new java.awt.Color(255, 255, 255));
         lableHeader.setText("Student Login Form");
 
@@ -81,7 +81,7 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        btnLogin.setBackground(new java.awt.Color(51, 153, 255));
+        btnLogin.setBackground(new java.awt.Color(58, 175, 169));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
@@ -91,7 +91,7 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
             }
         });
 
-        btnRegister.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegister.setBackground(new java.awt.Color(58, 175, 169));
         btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Register");
@@ -130,7 +130,7 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                        .addComponent(jPasswordField1)
                         .addGap(1, 1, 1))
                     .addComponent(lablePassword))
                 .addGap(40, 40, 40)
@@ -157,7 +157,8 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
        
-        String email = textFieldEmail.getText();
+        /*
+        *String email = textFieldEmail.getText();
         String password = String.valueOf(jPasswordField1.getPassword());
         
         String query = "SELECT * FROM `students` WHERE `email` =? AND `password` =?";
@@ -179,13 +180,16 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
         
         
         
-        /*
-        *if(email.isEmpty()||password.isEmpty()){
+        **/
+        String email = textFieldEmail.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
+        
+        if(email.isEmpty()||password.isEmpty()){
             JOptionPane.showMessageDialog(this, "Email / Password should not be empty");
         }else{
-      
+            JOptionPane.showMessageDialog(this, "logged in without access to database");
         }
-        */
+        
         
     }//GEN-LAST:event_btnLoginActionPerformed
 

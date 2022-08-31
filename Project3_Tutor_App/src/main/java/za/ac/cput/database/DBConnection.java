@@ -8,19 +8,9 @@ import java.sql.*;
 
 
 public class DBConnection {
-     protected Connection con;
-     protected void setConnecion() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con= DriverManager.getConnection("jdbc:mysql://localhost/Demo","root","123");
-        con = con;
-    }
-}
+Connection con = null;
 
-
-
-//Connection con = null;
-/*
-*try{
+try{
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/Demo","root","");
     } catch (Exception ex) {
@@ -32,17 +22,8 @@ public class DBConnection {
     public BaseConnection() throws SQLException, ClassNotFoundException {
         setConnecion();
     }
-*/
 
-
-   
-
-
-
-
-
-
-
+}
 
 /**
  *public class DBConnection {
