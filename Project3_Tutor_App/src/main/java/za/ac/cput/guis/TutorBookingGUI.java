@@ -4,6 +4,7 @@ GUI for the TutorBooking
 Author: 214258041_Lelihle Gazi
  */
 
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import za.ac.cput.database.BookingDatabase;
 import za.ac.cput.database.TutorDatabase;
 import za.ac.cput.entity.Booking;
@@ -56,20 +57,35 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
             cmbTutorItems[i] = arrtutors[i].getFirstName() + " " + arrtutors[i].getLastName();
         }
         lblHeader = new JLabel ("Tutor Booking");
-        lblHeader.setFont(new Font("Serif", Font.BOLD, 24));
+        lblHeader.setForeground(Color.white);
+        lblHeader.setFont(new Font("Verdana", Font.BOLD, 30));
         lblSubHeader = new JLabel ("Fill in the required details");
+        lblSubHeader.setFont(new Font("Verdana",Font.BOLD,27));
+        lblSubHeader.setForeground(Color.white);
         lblCourse = new JLabel ("Course");
+        lblCourse.setForeground(Color.white);
         cmbCourse = new JComboBox (cmbCourseItems);
+        AutoCompleteDecorator.decorate(cmbCourse);
+        AutoCompleteDecorator.decorate(cmbTutor);
         lblCourseError = new JLabel ("*Required*");
+        lblCourseError.setForeground(Color.white);
         lblTutor = new JLabel("Tutor");
+        lblTutor.setForeground(Color.white);
         cmbTutor = new JComboBox(cmbTutorItems);
         lblTutorError = new JLabel ("*Required*");
+        lblTutorError.setForeground(Color.white);
         btnBook = new JButton ("Book");
         btnDetails = new JButton("Tutor details");
+
+        btnBook.setBackground(Color.getColor("#3AAFA9"));
+        btnBook.setForeground(Color.white);
+        btnDetails.setBackground(Color.getColor("#FEFFFF"));
+        btnDetails.setForeground(Color.white);
 
         //adjust size and set layout
         this.setPreferredSize (new Dimension (535, 335));
         this.setLayout (null);
+        this.setBackground(Color.getColor("#17252A"));
 
         //add components
         add (lblHeader);
