@@ -33,6 +33,8 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
     private JLabel lblTutor;
     private JButton btnBook;
     private JButton btnDetails;
+
+    private JButton btnHomePage;
     private TutorDatabase tutorDatabase;
 
     private BookingDatabase bookingDatabase;
@@ -57,35 +59,41 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
             cmbTutorItems[i] = arrtutors[i].getFirstName() + " " + arrtutors[i].getLastName();
         }
         lblHeader = new JLabel ("Tutor Booking");
-        lblHeader.setForeground(Color.white);
-        lblHeader.setFont(new Font("Verdana", Font.BOLD, 30));
+        lblHeader.setForeground(Color.decode("#3AAFA9"));
+        lblHeader.setFont(new Font("Verdana", Font.BOLD, 22));
         lblSubHeader = new JLabel ("Fill in the required details");
-        lblSubHeader.setFont(new Font("Verdana",Font.BOLD,27));
-        lblSubHeader.setForeground(Color.white);
+        lblSubHeader.setFont(new Font("Verdana",Font.BOLD,16));
+        lblSubHeader.setForeground(Color.decode("#3AAFA9"));
         lblCourse = new JLabel ("Course");
-        lblCourse.setForeground(Color.white);
+        lblCourse.setForeground(Color.decode("#3AAFA9"));
         cmbCourse = new JComboBox (cmbCourseItems);
-        AutoCompleteDecorator.decorate(cmbCourse);
-        AutoCompleteDecorator.decorate(cmbTutor);
+
         lblCourseError = new JLabel ("*Required*");
-        lblCourseError.setForeground(Color.white);
+        lblCourseError.setForeground(Color.decode("#3AAFA9"));
         lblTutor = new JLabel("Tutor");
-        lblTutor.setForeground(Color.white);
+        lblTutor.setForeground(Color.decode("#3AAFA9"));
         cmbTutor = new JComboBox(cmbTutorItems);
         lblTutorError = new JLabel ("*Required*");
-        lblTutorError.setForeground(Color.white);
+        lblTutorError.setForeground(Color.decode("#3AAFA9"));
         btnBook = new JButton ("Book");
         btnDetails = new JButton("Tutor details");
+        btnHomePage = new JButton("Go to home");
 
-        btnBook.setBackground(Color.getColor("#3AAFA9"));
+
+        AutoCompleteDecorator.decorate(cmbCourse);
+        AutoCompleteDecorator.decorate(cmbTutor);
+
+        btnBook.setBackground(Color.decode("#3AAFA9"));
         btnBook.setForeground(Color.white);
-        btnDetails.setBackground(Color.getColor("#FEFFFF"));
+        btnDetails.setBackground(Color.decode("#3AAFA9"));
         btnDetails.setForeground(Color.white);
+        btnHomePage.setBackground(Color.decode("#3AAFA9"));
+        btnHomePage.setForeground(Color.white);
 
         //adjust size and set layout
         this.setPreferredSize (new Dimension (535, 335));
         this.setLayout (null);
-        this.setBackground(Color.getColor("#17252A"));
+        this.setBackground(Color.decode("#17252A"));
 
         //add components
         add (lblHeader);
@@ -98,13 +106,15 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         add (lblTutorError);
         add(btnBook);
         add(btnDetails);
+        add(btnHomePage);
 
         btnBook.addActionListener(this);
         btnDetails.addActionListener(this);
+        btnHomePage.addActionListener(this);
 
         //set component bounds
-        lblHeader.setBounds (224, 10, 180, 30);
-        lblSubHeader.setBounds (10, 55, 180, 25);
+        lblHeader.setBounds (224, 10, 380, 30);
+        lblSubHeader.setBounds (10, 55, 280, 25);
         lblCourse.setBounds (10, 85, 100, 25);
         cmbCourse.setBounds (10, 105, 100, 25);
         lblCourseError.setBounds (225, 105, 100, 25);
@@ -113,6 +123,7 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         btnDetails.setBounds(10 , 215,130,25);
         lblTutorError.setBounds (225, 165, 100, 25);
         btnBook.setBounds(224,260,100,25);
+        btnHomePage.setBounds(30,10,150,25);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -152,6 +163,10 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
                     + "Student Number: " + tutor.getStudentNumber() + "\n"
             );
             return;
+        }
+        if(e.getSource() == btnHomePage){
+            this.setVisible(false);
+            new HomepageGUI().setVisible(true);
         }
     }
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
