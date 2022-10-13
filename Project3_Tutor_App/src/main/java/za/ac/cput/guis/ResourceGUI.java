@@ -7,7 +7,6 @@ package za.ac.cput.guis;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
-import java.util.Objects;
 import javax.swing.*;
 
 
@@ -20,7 +19,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     JPanel panelAvailability, panelCenter, panelNorth, panelSouth;
     JRadioButton radAvailable , radUnavailable;
     ButtonGroup AvailabilityButtonGroup;
-    JButton btnNext, btnExit;
+    JButton btnHome,btnNext, btnExit;
     Font ft1, ft2, ft3;
     Connection con;
     PreparedStatement pst;
@@ -31,58 +30,65 @@ public class ResourceGUI extends JFrame implements ActionListener
     {
         super("Resources");
 
-        ft1 = new Font("Times New Roman", Font.ITALIC, 16);
-        ft2 = new Font("Verdana", Font.PLAIN, 14);
+        ft1 = new Font("Times New Roman", Font.PLAIN, 16);
+        ft2 = new Font("Verdana", Font.PLAIN, 27);
         ft3 = new Font("Verdana", Font.BOLD, 30);
 
         lblHeading = new JLabel("Resources", SwingConstants.CENTER);
         lblHeading.setFont(ft3);
+        lblHeading.setForeground(Color.white);
 
         panelCenter = new JPanel();
-        panelCenter.setBackground(Color.LIGHT_GRAY);
+        panelCenter.setBackground(Color.decode("#17252A"));
 
         panelNorth = new JPanel();
-        panelNorth.setBackground(Color.LIGHT_GRAY);
+        panelNorth.setBackground(Color.decode("#17252A"));
 
         panelSouth = new JPanel();
-        panelSouth.setBackground(Color.LIGHT_GRAY);
+        panelSouth.setBackground(Color.decode("#17252A"));
         imageName = "Resource.PNG";
         lblImage = new JLabel(new ImageIcon(imageName));
         // Images will be of the selected item
 
         lblItemName = new JLabel("Item Name: ", SwingConstants.CENTER);
         lblItemName.setFont(ft2);
+        lblItemName.setForeground(Color.white);
         //combo box will link to database to show selectable items
         cboItemName = new JComboBox();
         cboItemName.setForeground(Color.white);
-        cboItemName.setBackground(Color.DARK_GRAY);
+        cboItemName.setBackground(Color.decode("#2B7A78"));
 
         lblDescription = new JLabel("Description: ", SwingConstants.CENTER);
         lblDescription.setFont(ft2);
+        lblDescription.setForeground(Color.white);
         // Descriptions of the various different items will change as an item is selected
         txtDescription = new JTextArea();
         txtDescription.setEditable(false);
         txtDescription.setLineWrap(true);
         txtDescription.setWrapStyleWord(true);
         txtDescription.setForeground(Color.white);
-        txtDescription.setBackground(Color.DARK_GRAY);
+        txtDescription.setBackground(Color.decode("#2B7A78"));
 
         lblOwner = new JLabel("Owner's Contact: ", SwingConstants.CENTER);
         lblOwner.setFont(ft2);
+        lblOwner.setForeground(Color.white);
         txtOwner = new JTextField(20);
         // Descriptions of the various different items will change as an item is selected
         txtOwner = new JTextField();
         txtOwner.setEditable(false);
         txtOwner.setForeground(Color.white);
-        txtOwner.setBackground(Color.DARK_GRAY);
+        txtOwner.setBackground(Color.decode("#2B7A78"));
 
         lblAvailability = new JLabel("Availability: ");
-        lblAvailability.setFont(ft2);
+        lblAvailability.setFont(ft3);
+        lblAvailability.setForeground(Color.white);
         panelAvailability = new JPanel();
         radAvailable = new JRadioButton("Available");
-        radAvailable.setBackground(Color.LIGHT_GRAY);
+        radAvailable.setForeground(Color.white);
+        radAvailable.setBackground(Color.decode("#17252A"));
         radUnavailable = new JRadioButton("Unavailable");
-        radUnavailable.setBackground(Color.LIGHT_GRAY);
+        radUnavailable.setForeground(Color.white);
+        radUnavailable.setBackground(Color.decode("#17252A"));
         AvailabilityButtonGroup = new ButtonGroup();
         AvailabilityButtonGroup.add(radAvailable);
         AvailabilityButtonGroup.add(radUnavailable);
@@ -90,16 +96,20 @@ public class ResourceGUI extends JFrame implements ActionListener
         panelAvailability.add(radAvailable);
         panelAvailability.add(radUnavailable);
 
+        btnHome = new JButton("Home");
+        btnHome.setForeground(Color.white);
+        btnHome.setBackground(Color.decode("#3AAFA9"));
+        btnHome.setFont(ft2);
 
-        btnNext = new JButton("Update");
+        btnNext = new JButton("Search");
         btnNext.setForeground(Color.white);
-        btnNext.setBackground(Color.DARK_GRAY);
-        btnNext.setFont(ft1);
+        btnNext.setBackground(Color.decode("#3AAFA9"));
+        btnNext.setFont(ft2);
 
         btnExit = new JButton("Exit");
         btnExit.setForeground(Color.white);
-        btnExit.setBackground(Color.DARK_GRAY);
-        btnExit.setFont(ft1);
+        btnExit.setBackground(Color.decode("#3AAFA9"));
+        btnExit.setFont(ft2);
 
     }
 
@@ -121,7 +131,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         updateItemName();
 
         panelCenter.setLayout(new GridLayout(4, 7));
-        panelNorth.setLayout(new GridLayout(1, 1));
+        panelNorth.setLayout(new GridLayout(0, 1));
 
         panelNorth.add(lblHeading);
 
@@ -139,11 +149,17 @@ public class ResourceGUI extends JFrame implements ActionListener
 
         panelCenter.add(panelAvailability);
 
+//        panelSouth.add(panelButton);
         panelSouth.add(btnNext);
+        panelSouth.add(btnHome);
         panelSouth.add(btnExit);
+
+
+
 
         btnNext.addActionListener(this);
         btnExit.addActionListener(this);
+        btnHome.addActionListener(this);
 
         this.add(panelNorth, BorderLayout.NORTH);
         this.add(panelCenter, BorderLayout.CENTER);
@@ -157,7 +173,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if (e.getActionCommand().equals("Update"))
+        if (e.getActionCommand().equals("Search"))
         {
             try {
 
@@ -205,7 +221,11 @@ public class ResourceGUI extends JFrame implements ActionListener
                 ex.printStackTrace();
             }
         }
-
+        else if (e.getSource() == btnHome)
+        {
+            dispose();
+            new HomepageGUI().setGUI();
+        }
         else if (e.getSource() == btnExit)
         {
             System.exit(0);
@@ -216,7 +236,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/tutorapplication", "root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/bookingdb", "root","");
             System.out.println("Database Connection Success");
         }
         catch (ClassNotFoundException ex)
