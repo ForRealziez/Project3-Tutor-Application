@@ -58,7 +58,7 @@ public class StudentLoginGUI extends JPanel {
         add (lblPasswordErr);
 
         //set component bounds will be changed again
-        lblloginHeader.setBounds (10, 10, 230, 25);
+        lblloginHeader.setBounds (124, 10, 230, 25);
         lblSubHeader.setBounds (10, 40, 225, 25);
         lblEmailAddress.setBounds (10, 75, 225, 25);
         txtEmail.setBounds (10, 105, 225, 25);
