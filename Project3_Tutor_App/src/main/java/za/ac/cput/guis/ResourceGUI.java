@@ -4,6 +4,8 @@ package za.ac.cput.guis;
  * ResourceGui.java
  * author Mogamad Taariq Phillips : 220166153
  */
+import za.ac.cput.database.Database;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -46,7 +48,8 @@ public class ResourceGUI extends JFrame implements ActionListener
 
         panelSouth = new JPanel();
         panelSouth.setBackground(Color.decode("#17252A"));
-        imageName = "Resource.PNG";
+
+        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/";
         lblImage = new JLabel(new ImageIcon(imageName));
         // Images will be of the selected item
 
@@ -118,11 +121,11 @@ public class ResourceGUI extends JFrame implements ActionListener
         try {
             pst = con.prepareStatement("select * from resources");
             rs = pst.executeQuery();
-            while(rs.next()){
+            while(rs.next())
+            {
                 cboItemName.addItem(rs.getString("Item_Name"));
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
     }
 
     public void setGUI()
@@ -146,16 +149,12 @@ public class ResourceGUI extends JFrame implements ActionListener
 
         panelCenter.add(lblImage);
 
-
         panelCenter.add(panelAvailability);
 
 //        panelSouth.add(panelButton);
         panelSouth.add(btnNext);
         panelSouth.add(btnHome);
         panelSouth.add(btnExit);
-
-
-
 
         btnNext.addActionListener(this);
         btnExit.addActionListener(this);
@@ -164,7 +163,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         this.add(panelNorth, BorderLayout.NORTH);
         this.add(panelCenter, BorderLayout.CENTER);
         this.add(panelSouth, BorderLayout.SOUTH);
-        this.setSize(1000, 700);
+        this.setSize(800, 850);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
@@ -187,13 +186,11 @@ public class ResourceGUI extends JFrame implements ActionListener
                     Description = rs.getString("Description");
                     ownerContact = rs.getString("Owner_Contact");
                     Availability = rs.getString("Availability");
-//                    imageName = rs.getString("ImageID");
-
-
+                    imageName = rs.getString("ImageID");
 
                     txtDescription.setText(Description);
                     txtOwner.setText(ownerContact);
-//                    lblImage.setText(imageName);
+                    lblImage.setIcon(new ImageIcon("Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/"+imageName));
 
                     if(Availability.equals("true")){
                         radAvailable.setSelected(true);
@@ -224,7 +221,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         else if (e.getSource() == btnHome)
         {
             dispose();
-            new HomepageGUI().setGUI();
+            new za.ac.cput.gui.HomePageGUI().setGUI();
         }
         else if (e.getSource() == btnExit)
         {
@@ -236,7 +233,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/bookingdb", "root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/tutorapp", "root","");
             System.out.println("Database Connection Success");
         }
         catch (ClassNotFoundException ex)
@@ -248,11 +245,4 @@ public class ResourceGUI extends JFrame implements ActionListener
             ex.printStackTrace();
         }
     }
-
-    public static void main(String[] args)
-    {
-        new ResourceGUI().setGUI();
-
-    }
-
 }
