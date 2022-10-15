@@ -7,7 +7,59 @@ package za.ac.cput.database;
 import java.sql.*;
 
 
-public class DBConnection {
+ public class DBConnection {
+     public static Connection mycon(){
+     Connection con = null;
+     try{
+         Class.forName("com.mysql.jdbc.Driver");
+         
+         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Demo","root","");
+     }catch(ClassNotFoundException | SQLException e){
+         System.out.println(e);
+     }
+     
+     
+     return con;
+     }
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+ * @author Tasreeq
+ * *
+ * 
+ * public class DBConnection {
 Connection con = null;
 
 try{
@@ -24,12 +76,13 @@ try{
     }
 
 }
+ */
 
-/**
- *public class DBConnection {
-    static final String DB_URL = "jdbc:mysql://localhost/students";
+
+/*
+* static final String DB_URL = "jdbc:mysql:3306//localhost/students";
     static final String USER = "root";
-    static final String PASS = "root";
+    static final String PASS = "";
     
     public static Connection connectDB(){
     Connection conn = null;
@@ -38,14 +91,15 @@ try{
         Class.forName("com.mysql.jdbc.Driver");
         //open a connection
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
+        System.out.println("connected");
         return conn;
+        
         
     }catch(Exception ex){
         System.out.println("there was a error connecting to db.");
         return null;
     }
-    }    
-}
- * @author Tasreeq
- */
+    } 
+*
+*/
 
