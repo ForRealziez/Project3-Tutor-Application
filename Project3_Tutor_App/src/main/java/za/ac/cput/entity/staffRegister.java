@@ -124,7 +124,7 @@ public class staffRegister {
         private String registrationID;
         private String name;
         private String surname;
-        private Boolean gender;
+        private String gender;
         private String email;
         private String physicalAddress;
         private String course;
@@ -146,7 +146,7 @@ public class staffRegister {
             return this;
         }
 
-        public Builder setGender(Boolean gender) {
+        public Builder setGender(String gender) {
             this.gender = gender;
             return this;
         }
@@ -180,7 +180,7 @@ public class staffRegister {
             this.registrationID = register.registrationID;
             this.name = register.name;
             this.surname = register.surname;
-            this.gender = Boolean.valueOf(register.gender);
+            this.gender = register.gender;
             this.email = register.email;
             this.physicalAddress = register.physicalAddress;
             this.course = register.course;

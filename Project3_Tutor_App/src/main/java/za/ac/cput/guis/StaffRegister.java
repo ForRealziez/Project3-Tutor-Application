@@ -1,4 +1,6 @@
-import za.ac.cput.database.Staff;
+package za.ac.cput.guis;
+
+import za.ac.cput.database.StaffDatabase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 public class StaffRegister extends JDialog {
+    static String name;
     private JTextField tfName;
     private JTextField tfSurname;
     private JTextField tfGender;
@@ -50,8 +53,9 @@ public class StaffRegister extends JDialog {
     }
 
     private void registerUser() {
-         String name = tfName.getText();
-         String surname = tfSurname.getText();
+         //String name = tfName.getText();
+         name = tfName.getText();
+        String surname = tfSurname.getText();
          String gender = tfGender.getText();
          String email = tfEmail.getText();
          String address = tfAddress.getText();
@@ -87,9 +91,9 @@ public class StaffRegister extends JDialog {
          }
          
     }
-    public Staff user;
-    private Staff addUserToDatabase(String name, String surname, String gender, String email, String address, String course, String password) {
-        Staff user = null;
+    public StaffDatabase user;
+    private StaffDatabase addUserToDatabase(String name, String surname, String gender, String email, String address, String course, String password) {
+        StaffDatabase user = null;
         final String DB_URL = "jdbc:mysql://localhost:3306/";
         final String USERNAME = "root";
         final String PASSWORD = "";
@@ -109,17 +113,17 @@ public class StaffRegister extends JDialog {
             preparedStatement.setString(6, course);
             preparedStatement.setString(7, password);
 
-            int addedRows = preparedStatement.executeUpdate();
-            if (addedRows > 0){
-                user = new Staff();
-                user.name = name;
-                user.surname = surname;
-                user.gender = gender;
-                user.email = email;
-                user.address = address;
-                user.course = course;
-                user.password = password;
-            }
+//            int addedRows = preparedStatement.executeUpdate();
+//            if (addedRows > 0){
+//                user = new StaffDatabase();
+//                user.name = name;
+//                user.surname = surname;
+//                user.gender = gender;
+//                user.email = email;
+//                user.address = address;
+//                user.course = course;
+//                user.password = password;
+//            }
             stmt.close();
             conn.close();
 
@@ -133,9 +137,9 @@ public class StaffRegister extends JDialog {
 
     public static void main(String[] args) {
         StaffRegister myForm = new StaffRegister(null);
-        Staff user = myForm.user;
+        StaffDatabase user = myForm.user;
         if(user != null){
-            System.out.println("Successful registration of: " + user.name);
+            System.out.println("Successful registration of: " + name);
         }
         else{
             System.out.println("Registration invalid");

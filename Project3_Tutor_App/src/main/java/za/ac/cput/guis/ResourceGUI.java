@@ -224,7 +224,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         else if (e.getSource() == btnHome)
         {
             dispose();
-            new HomepageGUI().setGUI();
+            new za.ac.cput.gui.HomePageGUI().setGUI();
         }
         else if (e.getSource() == btnExit)
         {
