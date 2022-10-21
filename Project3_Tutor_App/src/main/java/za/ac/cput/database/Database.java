@@ -15,16 +15,22 @@ public class Database {
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement stmt = conn.createStatement();
         ) {
-            String sql = "CREATE DATABASE tutorApp";
+            String sql = "CREATE DATABASE projectApp";
             stmt.executeUpdate(sql);
             System.out.println("Database created successfully...");
 
+        } catch (SQLException e) {
+            System.out.println("Database already created.");;
+        }
+
+        try {
             // Adding tables to the database (resource table)
             //Registering the Driver
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             //Getting the connection
-            String mysqlUrl = "jdbc:mysql://localhost/tutorApp";
+            String mysqlUrl = "jdbc:mysql://localhost/projectApp";
             Connection con = DriverManager.getConnection(mysqlUrl, "root", "");
+            Statement stmt = con.createStatement();
             System.out.println("Connection established......");
 
             //Query to create a table
@@ -45,10 +51,11 @@ public class Database {
             stmt.executeUpdate(updateTable);
 
             System.out.println("Table Created......");
-
-        } catch (SQLException e) {
-            System.out.println("Database already created.");;
+        }catch(SQLException e) {
+            System.out.println("Table already created.");;
         }
+
+
 
 
 
