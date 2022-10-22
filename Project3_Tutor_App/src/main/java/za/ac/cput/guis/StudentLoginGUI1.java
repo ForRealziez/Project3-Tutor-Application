@@ -219,8 +219,13 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
                 
             JOptionPane.showMessageDialog(rootPane, "Email / Password correct loggin in");
             
-            new HomepageStudent().setVisible(true);
-            this.setVisible(false);
+            
+            dispose();
+            new HomepageStudent().setGUI();
+            
+            //this.setVisible(false);
+            //new HomepageStudent().setVisible(true);
+            
         }else{//incorrect details
             JOptionPane.showMessageDialog(rootPane, "Email / Password incorrect please try again");
         }  
