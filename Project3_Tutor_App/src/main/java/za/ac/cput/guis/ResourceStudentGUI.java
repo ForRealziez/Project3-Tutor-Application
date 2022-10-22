@@ -4,6 +4,7 @@ package za.ac.cput.guis;
  * ResourceGui.java
  * author Mogamad Taariq Phillips : 220166153
  */
+
 import za.ac.cput.database.Database;
 
 import java.awt.*;
@@ -12,7 +13,7 @@ import java.sql.*;
 import javax.swing.*;
 
 
-public class ResourceGUI extends JFrame implements ActionListener
+public class ResourceStudentGUI extends JFrame implements ActionListener
 {
     JLabel lblImage, lblHeading, lblItemName, lblDescription, lblOwner, lblAvailability;
     JComboBox cboItemName;
@@ -28,7 +29,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     ResultSet rs;
     String imageName, Availability, iName, Description, ownerContact;
 
-    public ResourceGUI()
+    public ResourceStudentGUI()
     {
         super("Resources");
 
@@ -151,7 +152,6 @@ public class ResourceGUI extends JFrame implements ActionListener
 
         panelCenter.add(panelAvailability);
 
-//        panelSouth.add(panelButton);
         panelSouth.add(btnNext);
         panelSouth.add(btnHome);
         panelSouth.add(btnExit);
@@ -221,7 +221,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         else if (e.getSource() == btnHome)
         {
             dispose();
-            new za.ac.cput.gui.HomePageGUI().setGUI();
+            new za.ac.cput.gui.HomepageStudent().setGUI();
         }
         else if (e.getSource() == btnExit)
         {
@@ -233,7 +233,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/tutorapp", "root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/projectapp", "root","");
             System.out.println("Database Connection Success");
         }
         catch (ClassNotFoundException ex)
