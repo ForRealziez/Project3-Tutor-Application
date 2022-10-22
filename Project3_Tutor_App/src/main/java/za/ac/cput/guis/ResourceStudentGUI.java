@@ -5,7 +5,7 @@ package za.ac.cput.guis;
  * author Mogamad Taariq Phillips : 220166153
  */
 
-import za.ac.cput.gui.HomepageStudent;
+import za.ac.cput.guis.HomepageStudent;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
