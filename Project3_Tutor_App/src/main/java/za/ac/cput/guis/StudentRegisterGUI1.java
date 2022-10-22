@@ -1,22 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+/*/**
+ * @author Moegammad Tasreeq Adams
+ * Student no: 216173027
+ * Project assignment
  */
+
 package za.ac.cput.guis;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import za.ac.cput.database.DBConnection;
 
-/**
- *
- * @author Tasreeq
- */
 public class StudentRegisterGUI1 extends javax.swing.JFrame {
     Connection con =null;
     ResultSet rs =null;
@@ -88,23 +84,23 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
 
         jLabelFirstName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelFirstName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFirstName.setText("First Names");
+        jLabelFirstName.setText("First Names:");
 
         jLabelLastName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelLastName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLastName.setText("Surname");
+        jLabelLastName.setText("Surname:");
 
         jLabelCourseEnrolled.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelCourseEnrolled.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelCourseEnrolled.setText("Course Enrolled");
+        jLabelCourseEnrolled.setText("Course Enrolled:");
 
         jLabelEmail.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmail.setText("Email Address");
+        jLabelEmail.setText("Email Address:");
 
         jLabelPassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelPassword.setText("Password");
+        jLabelPassword.setText("Password:");
 
         jButtonLogin.setBackground(new java.awt.Color(58, 175, 169));
         jButtonLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -288,20 +284,20 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
         if (firstNames.equals("")){
             JOptionPane.showMessageDialog(null,"Add a first Name");
         }else if(lastName.equals("")){
-            JOptionPane.showMessageDialog(null,"Add a Last Name");
+            JOptionPane.showMessageDialog(null,"Add a Surname");
         }else if(courseEnrolled.equals("")){
-            JOptionPane.showMessageDialog(null,"Add a course");
+            JOptionPane.showMessageDialog(null,"Add the Course enrolled in");
         }else if(email.equals("")){
             JOptionPane.showMessageDialog(null,"Add a Email Address");
         }else if(password.equals("")){
             JOptionPane.showMessageDialog(null,"Add a password");
         }else if(!password.equals(rtpass)){
-            JOptionPane.showMessageDialog(null,"retype password");
+            JOptionPane.showMessageDialog(null,"Password does not match");
         }else{
             
            s.executeUpdate("INSERT INTO student_credential(First_Name, Surname, Email_Address, Course_Enrolled_In, Password, Re_Typr_Password)"
                     + "VALUES('"+firstNames+"','"+lastName+"','"+courseEnrolled+"','"+email+"','"+password+"','"+rtpass+"')");
-           JOptionPane.showMessageDialog(rootPane, "Account created youll proceed to login pane");
+           JOptionPane.showMessageDialog(rootPane, "Account created Successfully you'll proceed to login page");
            
            this.setVisible(false);
            new StudentLoginGUI1().setVisible(true);
