@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import za.ac.cput.database.DBConnection;
 
@@ -55,6 +57,7 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
         jReTypePassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        fLab = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,7 +74,7 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(92, Short.MAX_VALUE)
                 .addComponent(registerHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
         );
@@ -131,6 +134,12 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
         jLabelpasswordReType.setForeground(new java.awt.Color(255, 255, 255));
         jLabelpasswordReType.setText("Re type Password");
 
+        jTextFieldFirstName2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldFirstName2KeyReleased(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Already have a Account:");
@@ -143,6 +152,8 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
+
+        fLab.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -168,13 +179,16 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
                                     .addComponent(jLabelLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldLastName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldFirstName2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCourseEnrolled, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jReTypePassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(70, 70, 70))
+                                    .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldCourseEnrolled, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jReTypePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jTextFieldFirstName2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(fLab, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(175, 175, 175)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,7 +214,8 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldFirstName2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldFirstName2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fLab, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,7 +304,7 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"retype password");
         }else{
             
-           s.executeUpdate("INSERT INTO student_registered(firstNames,lastName,courseEnrolled,email,password,Repassword)"
+           s.executeUpdate("INSERT INTO student_credential(First_Name, Surname, Email_Address, Course_Enrolled_In, Password, Re_Typr_Password)"
                     + "VALUES('"+firstNames+"','"+lastName+"','"+courseEnrolled+"','"+email+"','"+password+"','"+rtpass+"')");
            JOptionPane.showMessageDialog(rootPane, "Account created youll proceed to login pane");
            
@@ -301,9 +316,9 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
              System.out.println(e);
         }
         
-        jTextFieldFirstName2.setText("");
-        jTextFieldLastName.setText("");
-        jTextFieldCourseEnrolled.setText("");
+        //jTextFieldFirstName2.setText("");
+        //jTextFieldLastName.setText("");
+        //jTextFieldCourseEnrolled.setText("");
         jTextFieldEmail.setText("");
         jPasswordField.setText("");
         jReTypePassword.setText("");
@@ -317,6 +332,25 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
            ee.setVisible(true);
            this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    /*
+     private void jTextFieldFirstName2KeyReleased(java.awt.event.KeyEvent evt) {                                                 
+        // TODO add your handling code here:
+        String PATTERN="^{a-z A-Z}{2,30}$";
+        Pattern patt;
+        patt = Pattern.compile(PATTERN);
+
+        Matcher match=patt.matcher(jTextFieldFirstName2.getText());
+        if(!match.matches()){
+            fLab.setText("Wrong");
+        }else{
+            fLab.setText(null);
+        }
+    } 
+    **/
+    private void jTextFieldFirstName2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFirstName2KeyReleased
+
+    }//GEN-LAST:event_jTextFieldFirstName2KeyReleased
 
     /**
      * @param args the command line arguments
@@ -354,6 +388,7 @@ public class StudentRegisterGUI1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fLab;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonRegister;
     private javax.swing.JLabel jLabel1;

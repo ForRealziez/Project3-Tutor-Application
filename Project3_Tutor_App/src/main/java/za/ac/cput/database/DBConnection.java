@@ -13,7 +13,8 @@ import java.sql.*;
      try{
          Class.forName("com.mysql.jdbc.Driver");
          
-         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Demo","root","");
+         con = DriverManager.getConnection("jdbc:mysql://localhost/projectApp","root", "");
+         //Connection con = DriverManager.getConnection(mysqlUrl, "root", "");
      }catch(ClassNotFoundException | SQLException e){
          System.out.println(e);
      }
