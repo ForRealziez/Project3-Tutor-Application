@@ -4,7 +4,7 @@ package za.ac.cput.guis;
  * ResourceGui.java
  * author Mogamad Taariq Phillips : 220166153
  */
-
+import za.ac.cput.gui.HomepageTutor;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -219,7 +219,7 @@ public class ResourceTutorGUI extends JFrame implements ActionListener
         else if (e.getSource() == btnHome)
         {
             dispose();
-            new za.ac.cput.gui.HomepageTutor().setGUI();
+            new HomepageTutor().setGUI();
         }
         else if (e.getSource() == btnExit)
         {

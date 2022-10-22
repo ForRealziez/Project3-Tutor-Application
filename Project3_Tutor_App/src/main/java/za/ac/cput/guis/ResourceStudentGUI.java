@@ -5,8 +5,7 @@ package za.ac.cput.guis;
  * author Mogamad Taariq Phillips : 220166153
  */
 
-import za.ac.cput.database.Database;
-
+import za.ac.cput.gui.HomepageStudent;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -221,7 +220,7 @@ public class ResourceStudentGUI extends JFrame implements ActionListener
         else if (e.getSource() == btnHome)
         {
             dispose();
-            new za.ac.cput.gui.HomepageStudent().setGUI();
+            new HomepageStudent().setGUI();
         }
         else if (e.getSource() == btnExit)
         {
