@@ -11,7 +11,7 @@ public class BaseConnection {
     protected void setConnecion() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection= DriverManager.getConnection(
-                "jdbc:mysql:// root@localhost:3306/bookingdb");
+                Database.DB_URL,Database.USER,Database.PASS);
         _connection = connection;
     }
     protected ResultSet Execute(String query) throws SQLException {
