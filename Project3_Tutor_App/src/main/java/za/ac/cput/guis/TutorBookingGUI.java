@@ -40,6 +40,9 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
     private BookingDatabase bookingDatabase;
     private Tutor[] arrtutors;
     private int startingId = 1;
+    private String imageName;
+
+    private JLabel lblImage;
     public TutorBookingGUI() throws SQLException, ClassNotFoundException {
         tutorDatabase = new TutorDatabase();
         bookingDatabase = new BookingDatabase();
@@ -67,6 +70,8 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         lblCourse = new JLabel ("Course");
         lblCourse.setForeground(Color.decode("#3AAFA9"));
         cmbCourse = new JComboBox (cmbCourseItems);
+        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Resource.png";
+        lblImage = new JLabel(new ImageIcon(imageName));
 
         lblCourseError = new JLabel ("*Required*");
         lblCourseError.setForeground(Color.decode("#3AAFA9"));
@@ -107,6 +112,7 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         add(btnBook);
         add(btnDetails);
         add(btnHomePage);
+        add(lblImage);
 
         btnBook.addActionListener(this);
         btnDetails.addActionListener(this);
@@ -115,6 +121,7 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         //set component bounds
         lblHeader.setBounds (224, 10, 380, 30);
         lblSubHeader.setBounds (10, 55, 280, 25);
+        lblImage.setBounds(10,85,200,350 );
         lblCourse.setBounds (10, 85, 100, 25);
         cmbCourse.setBounds (10, 105, 100, 25);
         lblCourseError.setBounds (225, 105, 100, 25);
