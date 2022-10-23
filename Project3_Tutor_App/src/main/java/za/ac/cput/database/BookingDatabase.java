@@ -14,8 +14,8 @@ public class BookingDatabase extends BaseConnection
         super();
     }
 
-    public Booking GetBooking(String bookinQuery) throws SQLException {
-        ResultSet resultSet = Execute(bookinQuery);
+    public Booking GetBooking(String bookingQuery) throws SQLException {
+        ResultSet resultSet = Execute(bookingQuery);
 
         Booking booking = null;
 
@@ -30,8 +30,8 @@ public class BookingDatabase extends BaseConnection
         return booking;
     }
 
-    public Set<Booking> GetBookings(String bookinQuery) throws SQLException {
-        ResultSet resultSet = Execute(bookinQuery);
+    public Set<Booking> GetBookings(String bookingQuery) throws SQLException {
+        ResultSet resultSet = Execute(bookingQuery);
 
         Set<Booking> bookings = new HashSet<>();
 

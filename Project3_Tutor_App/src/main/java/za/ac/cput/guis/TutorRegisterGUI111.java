@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 
 public class TutorRegisterGUI111 extends javax.swing.JFrame {
@@ -253,36 +254,36 @@ public class TutorRegisterGUI111 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-       
-        
-        String firstNames = jTextFieldFirstName2.getText();
-        String lastName = jTextFieldLastName.getText();
-        String courseEnrolled = jTextFieldCourseEnrolled.getText();
+
+        String name = jTextFieldFirstName2.getText();
+        String surname = jTextFieldLastName.getText();
+        String course = jTextFieldCourseEnrolled.getText();
         String email = jTextFieldEmail.getText();
         String password = String.valueOf(jPasswordField.getText());
-        String rtpass = String.valueOf(jReTypePassword.getText());
+        String confirmPassword = String.valueOf(jReTypePassword.getText());
         
         try{
             Statement s = DBConnection.mycon().createStatement();
             
-        if (firstNames.equals("")){
+        if (name.equals("")){
             JOptionPane.showMessageDialog(null,"Add a first Name");
-        }else if(lastName.equals("")){
+        }else if(surname.equals("")){
             JOptionPane.showMessageDialog(null,"Add a Last Name");
-        }else if(courseEnrolled.equals("")){
+        }else if(course.equals("")){
             JOptionPane.showMessageDialog(null,"Add a course");
         }else if(email.equals("")){
             JOptionPane.showMessageDialog(null,"Add a Email Address");
         }else if(password.equals("")){
             JOptionPane.showMessageDialog(null,"Add a password");
-        }else if(!password.equals(rtpass)){
+        }else if(!password.equals(confirmPassword)){
             JOptionPane.showMessageDialog(null,"retype password");
         }else{
             
-           s.executeUpdate("INSERT INTO student_registered(firstNames,lastName,courseEnrolled,email,password,Repassword)"
-                    + "VALUES('"+firstNames+"','"+lastName+"','"+courseEnrolled+"','"+email+"','"+password+"','"+rtpass+"')");
-           JOptionPane.showMessageDialog(rootPane, "Account created youll proceed to login pane");
-           
+           s.executeUpdate("INSERT INTO Staff(staffid,Name,Surname,Email,Course,Password)"
+                           + "VALUES('"+staffid+"','"+name+"','"+surname+"','"+email+"','"+course+"','"+password+"')");
+           JOptionPane.showMessageDialog(rootPane, "Account created you'll proceed to login pane");
+            String staffID = UUID.randomUUID().toString();
+           // pst.setString(staffID);
            this.setVisible(false);
            new TutorLogin111111().setVisible(true);
            

@@ -156,8 +156,9 @@ public class LoginA extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        HomepageTutor s = new HomepageTutor();
-        s.setGUI();
+        TutorLogin111111 s = new TutorLogin111111();
+        s.setTitle("TutorLoginGUI1");
+        s.setVisible(true);
         this.dispose();
         
     }//GEN-LAST:event_jButton2ActionPerformed

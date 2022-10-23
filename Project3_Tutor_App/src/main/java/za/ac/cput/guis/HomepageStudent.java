@@ -172,7 +172,13 @@ public class HomepageStudent extends JFrame implements ActionListener {
 
             case "Tutors" -> {
                 mainFrame.dispose();
-                new HomepageStudent().setVisible(true);
+                try {
+                    new TutorBookingGUI().setVisible(true);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
 
 
                 break;

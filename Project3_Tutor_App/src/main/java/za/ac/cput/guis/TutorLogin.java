@@ -1,7 +1,5 @@
 package za.ac.cput.guis;
 
-import za.ac.cput.entity.staffRegister;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,6 +12,7 @@ public class TutorLogin extends JDialog{
     private JButton btnLogin;
     private JButton btnRegister;
     private JPanel loginPanel;
+    private JButton homeButton;
 
     public TutorLogin(JFrame parent){
         super(parent);
@@ -32,7 +31,7 @@ public class TutorLogin extends JDialog{
 
                 final String DB_URL = "jdbc:mysql://localhost/projectApp";
                 final String USERNAME = "root";
-                final String PASSWORD = "Giant123";
+                final String PASSWORD = "";
 
                 try {
                     Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -49,7 +48,18 @@ public class TutorLogin extends JDialog{
 
         });
 
-  }
+
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginA tt = new LoginA();
+                tt.dispose();
+                tt.setTitle("LoginA");
+                tt.setVisible(true);
+
+            }
+        });
+    }
 
 
     public static void main(String[] args) {

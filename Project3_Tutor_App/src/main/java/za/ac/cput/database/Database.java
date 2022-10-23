@@ -112,9 +112,6 @@ public class Database {
                     "(NULL, 1, 'ADP', '2022-08-07', '2022-08-10')," +
                     "(NULL, 2, 'CMD', '2022-05-03', '2022-05-11')," +
                     "(NULL, 3, 'PRM', '2022-07-01', '2022-08-01')";
-
-            stmt.execute(sqlCreateTutor);
-
             stmt.execute(sqlCreateBooking);
             stmt.executeUpdate(bookingTable);
 
