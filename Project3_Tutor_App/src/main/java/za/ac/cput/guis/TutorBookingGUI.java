@@ -166,7 +166,7 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         }
         if(e.getSource() == btnHomePage){
             this.setVisible(false);
-            new za.ac.cput.gui.HomepageStudent().setVisible(true);
+            new za.ac.cput.guis.HomepageStudent().setVisible(true);
         }
     }
     public static void main(String[] args) throws SQLException, ClassNotFoundException {

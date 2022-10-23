@@ -224,7 +224,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="First Names"/>
+            <Property name="text" type="java.lang.String" value="First Names:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelLastName">
@@ -235,7 +235,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Surname"/>
+            <Property name="text" type="java.lang.String" value="Surname:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCourseEnrolled">
@@ -246,7 +246,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Course Enrolled"/>
+            <Property name="text" type="java.lang.String" value="Course Enrolled:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelEmail">
@@ -257,7 +257,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Email Address"/>
+            <Property name="text" type="java.lang.String" value="Email Address:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPassword">
@@ -268,7 +268,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Password"/>
+            <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldLastName">

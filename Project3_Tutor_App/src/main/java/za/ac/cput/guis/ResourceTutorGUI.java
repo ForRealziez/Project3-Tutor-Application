@@ -4,7 +4,7 @@ package za.ac.cput.guis;
  * ResourceGui.java
  * author Mogamad Taariq Phillips : 220166153
  */
-import za.ac.cput.gui.HomepageTutor;
+import za.ac.cput.guis.HomepageTutor;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
