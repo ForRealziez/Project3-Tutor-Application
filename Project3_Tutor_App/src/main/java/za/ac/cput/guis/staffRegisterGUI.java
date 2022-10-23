@@ -130,7 +130,7 @@ public class staffRegisterGUI implements ActionListener{
 
     }
 
-    public static void main(String[] args) {
-        new staffRegisterGUI();
-    }
+//    public static void main(String[] args) {
+//        new staffRegisterGUI();
+//    }
 }
