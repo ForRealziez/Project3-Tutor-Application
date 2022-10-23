@@ -5,7 +5,7 @@ package za.ac.cput.guis;
  * author Mogamad Taariq Phillips : 220166153
  */
 
-import za.ac.cput.gui.HomepageStudent;
+import za.ac.cput.guis.HomepageStudent;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -49,7 +49,7 @@ public class ResourceStudentGUI extends JFrame implements ActionListener
         panelSouth = new JPanel();
         panelSouth.setBackground(Color.decode("#17252A"));
 
-        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/";
+        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Resource.png";
         lblImage = new JLabel(new ImageIcon(imageName));
         // Images will be of the selected item
 

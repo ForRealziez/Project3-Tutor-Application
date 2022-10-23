@@ -52,46 +52,33 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="noticeHeader" min="-2" pref="391" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelFirstName" min="-2" pref="148" max="-2" attributes="0"/>
-                                      <Component id="jLabelPassword" min="-2" pref="148" max="-2" attributes="0"/>
-                                      <Component id="jLabelpasswordReType" min="-2" pref="169" max="-2" attributes="0"/>
-                                      <Component id="jLabelEmail" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                                      <Component id="jLabelCourseEnrolled" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                                      <Component id="jLabelLastName" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldLastName" min="-2" pref="249" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldCourseEnrolled" min="-2" pref="249" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldEmail" min="-2" pref="249" max="-2" attributes="0"/>
-                                      <Component id="jPasswordField" min="-2" pref="249" max="-2" attributes="0"/>
-                                      <Component id="jReTypePassword" min="-2" pref="249" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jTextFieldFirstName2" min="-2" pref="249" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="fLab" min="-2" pref="72" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" pref="176" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jLabelFirstName" min="-2" pref="148" max="-2" attributes="0"/>
+                              <Component id="jLabelPassword" min="-2" pref="148" max="-2" attributes="0"/>
+                              <Component id="jLabelpasswordReType" min="-2" pref="169" max="-2" attributes="0"/>
+                              <Component id="jLabelEmail" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
+                              <Component id="jLabelCourseEnrolled" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
+                              <Component id="jLabelLastName" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldLastName" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCourseEnrolled" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="jTextFieldEmail" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="jPasswordField" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="jReTypePassword" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="jTextFieldFirstName2" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="176" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -110,48 +97,52 @@
                       </Group>
                   </Group>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="noticeHeader" min="-2" pref="391" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="noticeHeader" min="-2" pref="26" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelFirstName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jTextFieldFirstName2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="fLab" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelLastName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jTextFieldLastName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelCourseEnrolled" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jTextFieldCourseEnrolled" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelEmail" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jTextFieldEmail" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelPassword" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jPasswordField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelpasswordReType" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jReTypePassword" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="jButtonRegister" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace pref="59" max="32767" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonLogin" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -184,9 +175,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="registerHeader" min="-2" pref="59" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -224,7 +215,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="First Names"/>
+            <Property name="text" type="java.lang.String" value="First Names:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelLastName">
@@ -235,7 +226,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Surname"/>
+            <Property name="text" type="java.lang.String" value="Surname:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCourseEnrolled">
@@ -246,7 +237,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Course Enrolled"/>
+            <Property name="text" type="java.lang.String" value="Course Enrolled:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelEmail">
@@ -257,7 +248,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Email Address"/>
+            <Property name="text" type="java.lang.String" value="Email Address:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPassword">
@@ -268,7 +259,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Password"/>
+            <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldLastName">
@@ -355,13 +346,6 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel2MouseClicked"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="fLab">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

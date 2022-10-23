@@ -4,7 +4,7 @@ package za.ac.cput.guis;
  * ResourceGui.java
  * author Mogamad Taariq Phillips : 220166153
  */
-import za.ac.cput.gui.HomepageTutor;
+import za.ac.cput.guis.HomepageTutor;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -48,7 +48,8 @@ public class ResourceTutorGUI extends JFrame implements ActionListener
         panelSouth = new JPanel();
         panelSouth.setBackground(Color.decode("#17252A"));
 
-        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/";
+        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Resource.png";
+        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Resource.png";
         lblImage = new JLabel(new ImageIcon(imageName));
         // Images will be of the selected item
 
@@ -161,7 +162,7 @@ public class ResourceTutorGUI extends JFrame implements ActionListener
         this.add(panelNorth, BorderLayout.NORTH);
         this.add(panelCenter, BorderLayout.CENTER);
         this.add(panelSouth, BorderLayout.SOUTH);
-        this.setSize(800, 850);
+        this.setSize(650, 650);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }

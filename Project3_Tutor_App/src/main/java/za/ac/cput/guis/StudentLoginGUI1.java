@@ -217,7 +217,7 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
             
             if(rs.next()){//correct details
                 
-            JOptionPane.showMessageDialog(rootPane, "Email / Password correct loggin in");
+            JOptionPane.showMessageDialog(rootPane, "Email and Password correct you'll be redirected to homepage");
             
             
             dispose();
@@ -230,15 +230,14 @@ public class StudentLoginGUI1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Email / Password incorrect please try again");
         }  
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "error"); 
+            JOptionPane.showMessageDialog(null, "error occurred try again"); 
         }
         textFieldEmail.setText("");
         jPasswordField1.setText("");
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // TODO add your handling code here:
-        //linking register button to register form 
+        
         StudentRegisterGUI1 rf = new StudentRegisterGUI1();
         rf.setVisible(true);
         rf.pack();
