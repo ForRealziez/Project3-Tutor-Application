@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
-public class TutorBookingGUI extends JPanel implements ActionListener {
+public class TutorBookingGUI extends JFrame implements ActionListener {
     private JLabel lblHeader;
     private JLabel lblSubHeader;
 
