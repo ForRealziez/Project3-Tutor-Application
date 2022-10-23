@@ -166,14 +166,14 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         }
         if(e.getSource() == btnHomePage){
             this.setVisible(false);
-            new HomepageGUI().setVisible(true);
+            new za.ac.cput.guis.HomepageStudent().setVisible(true);
         }
     }
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        JFrame frame = new JFrame ("Booking Tutor");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new TutorBookingGUI());
-        frame.pack();
-        frame.setVisible (true);
-    }
+//    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+//        JFrame frame = new JFrame ("Booking Tutor");
+//        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+//        frame.getContentPane().add (new TutorBookingGUI());
+//        frame.pack();
+//        frame.setVisible (true);
+//    }
 }
