@@ -3,7 +3,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/*
+ * Database.java
+ * author Abdul Aleem Chilwan (220108447)
+ *
+ */
 public class Database {
     static final String DB_URL = "jdbc:mysql://localhost/";
     static final String USER = "root";
@@ -29,7 +33,7 @@ public class Database {
         try {
             // Adding tables to the database (resource table)
             //Registering the Driver
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             //Getting the connection
             String mysqlUrl = "jdbc:mysql://localhost/projectApp";
             Connection con = DriverManager.getConnection(mysqlUrl, "root", "");
@@ -70,20 +74,54 @@ public class Database {
                     "(NULL, 'admin', 'admin', 'admin@gmail.com', 'Data checker', 'admin', 'admin')," +
                     "(NULL, 'Tasreeq', 'Adams', '@gmail.com', 'Project3', '12345678', '12345678')," +
                     "(NULL, 'Student', 'Student', 'Student@gmail.com', 'Project 3', 'Student', 'Student');";
-            //execution for dtudent credential
+            //execution for student credential
             stmt.execute(sqlCreateStudent_credential);
             stmt.executeUpdate(updateTable1);
+
+//Create a tutor table for Tutor page
+            String sqlCreateTutor = "CREATE TABLE Tutors ("
+                    + "id int(20) NOT NULL AUTO_INCREMENT,"
+                    + "username varchar(20) NOT NULL,"
+                    + "email varchar(30) NOT NULL,"
+                    + "firstName varchar(20) NOT NULL,"
+                    + "lastName varchar(20) NOT NULL,"
+                    + "studentNumber varchar(20) NOT NULL,"
+                    + "dateCreated varchar(50) NOT NULL,"
+                    + "PRIMARY KEY (id))";
+
+            String tutorTable = "INSERT INTO Tutors (id, username, email, firstName, lastName, studentNumber, dateCreated) VALUES" +
+                    "(NULL, 'leegazi', 'lee.gazi@gmail.com', 'Lee', 'Gazi', '21567789', '2022-08-07')," +
+                    "(NULL, 'frank', 'frank.jones@gmail.com', 'Frank', 'Jones', '21367890', '2022-07-20')," +
+                    "(NULL, 'soma58', 'soma@yahoo.com', 'Soma', 'Fisher', '2145889', '2022-08-07')";
+
+            stmt.execute(sqlCreateTutor);
+            stmt.executeUpdate(tutorTable);
+
+//Create a tutor table for Booking page
+            String sqlCreateBooking = "CREATE TABLE Bookings ("
+                    + "id int(20) NOT NULL AUTO_INCREMENT,"
+                    + "tutorId varchar(50) NOT NULL,"
+                    + "courseId varchar(50) NOT NULL,"
+                    + "startDate varchar(20) NOT NULL,"
+                    + "endDate varchar(20) NOT NULL,"
+                    + "PRIMARY KEY (id))";
+
+
+            String bookingTable = "INSERT INTO Bookings (id, tutorId, courseId, startDate, endDate) VALUES" +
+                    "(NULL, 1, 'ADP', '2022-08-07', '2022-08-10')," +
+                    "(NULL, 2, 'CMD', '2022-05-03', '2022-05-11')," +
+                    "(NULL, 3, 'PRM', '2022-07-01', '2022-08-01')";
+
+            stmt.execute(sqlCreateTutor);
+
+            stmt.execute(sqlCreateBooking);
+            stmt.executeUpdate(bookingTable);
+
 
             System.out.println("Table Created......");
         }catch(SQLException e) {
             System.out.println("Table already created.");;
         }
-
-
-
-
-
-
     }
 
 }

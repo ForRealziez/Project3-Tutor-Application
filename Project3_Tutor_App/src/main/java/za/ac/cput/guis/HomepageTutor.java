@@ -1,6 +1,8 @@
 package za.ac.cput.guis;
-
-
+/*
+ * HomepageTutor.java
+ * author Abdul Aleem Chilwan : 220108447
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -28,7 +30,6 @@ public class HomepageTutor extends JFrame implements ActionListener {
     private JLabel txtCPUTLinks;
 
     private JButton btnStudentDetails;
-    private JButton btnTutors;
     private JButton btnShop;
 
     private Font font1;
@@ -46,9 +47,9 @@ public class HomepageTutor extends JFrame implements ActionListener {
         panelCenter = new JPanel();
         panelSouth = new JPanel();
 
-        lblAppImage = new JLabel(new ImageIcon("Students.jpg"));
-        lblTutorImage = new JLabel(new ImageIcon("Tutors.jpg"));
-        lblCPUTImage = new JLabel(new ImageIcon("CPUT.jpg"));
+        lblAppImage = new JLabel(new ImageIcon("Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Students.jpg"));
+        lblTutorImage = new JLabel(new ImageIcon("Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Tutors.jpg"));
+        lblCPUTImage = new JLabel(new ImageIcon("Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/CPUT.jpg"));
 
         lblAppName = new JLabel("Student Tutors");
         lblAppName.setFont(font1);
@@ -98,17 +99,12 @@ public class HomepageTutor extends JFrame implements ActionListener {
         btnLogout.setBorder(BorderFactory.createLineBorder(Color.black));
         btnLogout.setPreferredSize(new Dimension(27, 27));
 
-        btnStudentDetails = new JButton("Tutor Details");
+        btnStudentDetails = new JButton("Student Details");
         btnStudentDetails.setForeground(Color.white);
         btnStudentDetails.setBackground(Color.decode("#3AAFA9"));
         btnStudentDetails.setBorder(BorderFactory.createLineBorder(Color.black));
 
-        btnTutors = new JButton("Tutors");
-        btnTutors.setForeground(Color.white);
-        btnTutors.setBackground(Color.decode("#3AAFA9"));
-        btnTutors.setBorder(BorderFactory.createLineBorder(Color.black));
-
-        btnShop = new JButton("Purchases");
+        btnShop = new JButton("Resources");
         btnShop.setForeground(Color.white);
         btnShop.setBackground(Color.decode("#3AAFA9"));
         btnShop.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -136,12 +132,10 @@ public class HomepageTutor extends JFrame implements ActionListener {
         panelCenter.add(txtCPUTLinks);
 
         panelSouth.add(btnStudentDetails);
-        panelSouth.add(btnTutors);
         panelSouth.add(btnShop);
         panelSouth.add(btnLogout);
 
         btnStudentDetails.addActionListener(this);
-        btnTutors.addActionListener(this);
         btnShop.addActionListener(this);
         btnLogout.addActionListener(this);
 
@@ -172,27 +166,20 @@ public class HomepageTutor extends JFrame implements ActionListener {
 
                 break;}
 
-            case "Tutor Details" -> {
+            case "Student Details" -> {
 
-                JOptionPane.showMessageDialog(null,"Tutor Details");
-                break;
-            }
-            case "Tutors" -> {
-
-                JOptionPane.showMessageDialog(null,"Tutor Page");
-                break;
-            }
-            case  "Purchases" -> {
-
-                JOptionPane.showMessageDialog(null,"Purchases.");
+                mainFrame.dispose();
+                new StudentDetailsGui().setVisible(true);
                 break;
             }
 
-        }}
+            case  "Resources" -> {
+                mainFrame.dispose();
+                new ResourceTutorGUI().setGUI();
+                break;
+            }
 
-    public static void main(String[] args) {
-        new HomepageTutor().setGUI();
+        }
     }
-
 }
 
