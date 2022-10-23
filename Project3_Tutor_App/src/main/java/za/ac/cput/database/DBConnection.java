@@ -11,7 +11,7 @@ import java.sql.*;
      public static Connection mycon(){
      Connection con = null;
      try{
-         Class.forName("com.mysql.jdbc.Driver");
+         Class.forName("com.mysql.cj.jdbc.Driver");
          
          con = DriverManager.getConnection("jdbc:mysql://localhost/projectApp","root", "");
          //Connection con = DriverManager.getConnection(mysqlUrl, "root", "");

@@ -30,7 +30,7 @@ public class staffRegisterRepository implements IStaffRegisterRepository {
     @Override
     public staffRegister read(String registrationID) {
         staffRegister staffRegister = staffRegisterDB.stream()
-                .filter(s -> s.getRegistrationID()
+                .filter(s -> s.getStaffID()
                         .equals(registrationID))
                 .findAny()
                 .orElse(null);
@@ -40,7 +40,7 @@ public class staffRegisterRepository implements IStaffRegisterRepository {
 
     @Override
     public staffRegister update(staffRegister staffRegister) {
-        staffRegister oldStaffRegister = read(staffRegister.getRegistrationID());
+        staffRegister oldStaffRegister = read(staffRegister.getStaffID());
         if (oldStaffRegister != null){
             staffRegisterDB.add(staffRegister);
             staffRegisterDB.remove(oldStaffRegister);
