@@ -33,7 +33,7 @@ public class Database {
         try {
             // Adding tables to the database (resource table)
             //Registering the Driver
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             //Getting the connection
             String mysqlUrl = "jdbc:mysql://localhost/projectApp";
             Connection con = DriverManager.getConnection(mysqlUrl, "root", "");
@@ -74,7 +74,7 @@ public class Database {
                     "(NULL, 'admin', 'admin', 'admin@gmail.com', 'Data checker', 'admin', 'admin')," +
                     "(NULL, 'Tasreeq', 'Adams', '@gmail.com', 'Project3', '12345678', '12345678')," +
                     "(NULL, 'Student', 'Student', 'Student@gmail.com', 'Project 3', 'Student', 'Student');";
-            //execution for dtudent credential
+            //execution for student credential
             stmt.execute(sqlCreateStudent_credential);
             stmt.executeUpdate(updateTable1);
 
@@ -106,10 +106,13 @@ public class Database {
                     + "endDate varchar(20) NOT NULL,"
                     + "PRIMARY KEY (id))";
 
+
             String bookingTable = "INSERT INTO Bookings (id, tutorId, courseId, startDate, endDate) VALUES" +
                     "(NULL, 1, 'ADP', '2022-08-07', '2022-08-10')," +
                     "(NULL, 2, 'CMD', '2022-05-03', '2022-05-11')," +
                     "(NULL, 3, 'PRM', '2022-07-01', '2022-08-01')";
+
+            stmt.execute(sqlCreateTutor);
 
             stmt.execute(sqlCreateBooking);
             stmt.executeUpdate(bookingTable);
@@ -119,12 +122,6 @@ public class Database {
         }catch(SQLException e) {
             System.out.println("Table already created.");;
         }
-
-
-
-
-
-
     }
 
 }
