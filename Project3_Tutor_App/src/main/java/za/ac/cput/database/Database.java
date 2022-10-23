@@ -33,7 +33,7 @@ public class Database {
         try {
             // Adding tables to the database (resource table)
             //Registering the Driver
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             //Getting the connection
             String mysqlUrl = "jdbc:mysql://localhost/projectApp";
             Connection con = DriverManager.getConnection(mysqlUrl, "root", "");
@@ -74,7 +74,7 @@ public class Database {
                     "(NULL, 'admin', 'admin', 'admin@gmail.com', 'Data checker', 'admin', 'admin')," +
                     "(NULL, 'Tasreeq', 'Adams', '@gmail.com', 'Project3', '12345678', '12345678')," +
                     "(NULL, 'Student', 'Student', 'Student@gmail.com', 'Project 3', 'Student', 'Student');";
-            //execution for dtudent credential
+            //execution for student credential
             stmt.execute(sqlCreateStudent_credential);
             stmt.executeUpdate(updateTable1);
 
@@ -98,6 +98,7 @@ public class Database {
                     + "endDate varchar(20) NOT NULL,"
                     + "PRIMARY KEY (id))";
 
+            stmt.execute(sqlCreateTutor);
             stmt.execute(sqlCreateBooking);
 
 
