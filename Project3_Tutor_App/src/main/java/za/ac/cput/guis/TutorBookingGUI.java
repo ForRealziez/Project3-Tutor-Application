@@ -43,7 +43,7 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
     public TutorBookingGUI() throws SQLException, ClassNotFoundException {
         tutorDatabase = new TutorDatabase();
         bookingDatabase = new BookingDatabase();
-        Set<Tutor> tutors = tutorDatabase.GetTutors("select * from tutors");
+        Set<Tutor> tutors = tutorDatabase.GetTutors("SELECT * FROM tutors");
         String[] cmbCourseItems = {"Select","ADP", "CMD", "MUD"};
         String[] cmbTutorItems = new String[tutors.size()];
 
@@ -124,6 +124,9 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         lblTutorError.setBounds (225, 165, 100, 25);
         btnBook.setBounds(224,260,100,25);
         btnHomePage.setBounds(30,10,150,25);
+        this.setSize(500,500);
+        this.pack();
+        this.setVisible(true);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -165,15 +168,15 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
             return;
         }
         if(e.getSource() == btnHomePage){
-            this.setVisible(false);
-            new za.ac.cput.gui.HomePageGUI().setVisible(true);
+            this.dispose();
+            new za.ac.cput.guis.HomepageStudent().setGUI();
         }
     }
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    /*public static void main(String[] args) throws SQLException, ClassNotFoundException {
         JFrame frame = new JFrame ("Booking Tutor");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add (new TutorBookingGUI());
         frame.pack();
         frame.setVisible (true);
-    }
+    }*/
 }

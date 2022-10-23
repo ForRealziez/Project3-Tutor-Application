@@ -109,7 +109,7 @@ public class StaffRegister extends JDialog {
         staffRegister user = null;
         final String DB_URL = "jdbc:mysql://localhost/projectApp";
         final String USERNAME = "root";
-        final String PASSWORD = "Giant123";
+        final String PASSWORD = "";
 
         try{
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
