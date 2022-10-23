@@ -162,7 +162,7 @@ public class ResourceStudentGUI extends JFrame implements ActionListener
         this.add(panelNorth, BorderLayout.NORTH);
         this.add(panelCenter, BorderLayout.CENTER);
         this.add(panelSouth, BorderLayout.SOUTH);
-        this.setSize(800, 850);
+        this.setSize(650, 650);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
