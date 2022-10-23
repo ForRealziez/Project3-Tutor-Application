@@ -6,6 +6,7 @@ import java.sql.Statement;
 /*
  * Database.java
  * author Abdul Aleem Chilwan (220108447)
+*secondary Author Moegammad Tasreeq Adams (216173027) 
  *
  */
 public class Database {
