@@ -3,7 +3,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/*
+ * Database.java
+ * author Abdul Aleem Chilwan (220108447)
+ *
+ */
 public class Database {
     static final String DB_URL = "jdbc:mysql://localhost/";
     static final String USER = "root";

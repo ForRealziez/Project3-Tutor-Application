@@ -1,5 +1,8 @@
 package za.ac.cput.guis;
-
+/*
+ * HomepageStudent.java
+ * author Abdul Aleem Chilwan : 220108447
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -167,21 +170,17 @@ public class HomepageStudent extends JFrame implements ActionListener {
 
             case "Tutors" -> {
 
-                JOptionPane.showMessageDialog(null,"Tutor Page");
+               //  new TutorBookingGUI.setVisible(true);
                 break;
             }
             case  "Resources" -> {
 
-                dispose();
-               // new ResourceStudentGUI.setGUI();
+                mainFrame.dispose();
+                new ResourceStudentGUI().setGUI();
                 break;
             }
 
         }}
-
-    public static void main(String[] args) {
-        new HomepageStudent().setGUI();
-    }
 
 }
 

@@ -49,7 +49,7 @@ public class ResourceStudentGUI extends JFrame implements ActionListener
         panelSouth = new JPanel();
         panelSouth.setBackground(Color.decode("#17252A"));
 
-        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/";
+        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Resource.png";
         lblImage = new JLabel(new ImageIcon(imageName));
         // Images will be of the selected item
 
