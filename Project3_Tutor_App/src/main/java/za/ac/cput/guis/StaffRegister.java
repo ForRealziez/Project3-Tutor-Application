@@ -114,13 +114,12 @@ public class StaffRegister extends JDialog {
         try{
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 
-            //Statement stmt = conn.createStatement();
+
 
             String sql = """
                         INSERT INTO Staff (staffid, name, surname, gender, email, address, course, password)
                         VALUES (?,?, ?, ?, ?, ?, ?, ?)""";
-            //String sql = "INSERT INTO Staff (name, surname, gender, email, address, course, password)" +
-            //        "VALUES ('lol', 'lol', 'lol', 'lol, 'lol', 'lol', 'lol)";
+
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             String staffID = UUID.randomUUID().toString();
             preparedStatement.setString(1, staffID);
