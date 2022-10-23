@@ -279,8 +279,8 @@ public class TutorRegisterGUI111 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"retype password");
         }else{
             
-           s.executeUpdate("INSERT INTO Staff(staffid,Name,Surname,Email,Course,Password)"
-                           + "VALUES('"+staffid+"','"+name+"','"+surname+"','"+email+"','"+course+"','"+password+"')");
+           s.executeUpdate("INSERT INTO Staff(Name,Surname,Email,Course,Password)"
+                           + "VALUES('"+name+"','"+surname+"','"+email+"','"+course+"','"+password+"')");
            JOptionPane.showMessageDialog(rootPane, "Account created you'll proceed to login pane");
             String staffID = UUID.randomUUID().toString();
            // pst.setString(staffID);

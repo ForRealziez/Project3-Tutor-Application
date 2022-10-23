@@ -42,7 +42,7 @@ public class StaffDatabase {
 
             //Query to create a table
             String sqlCreateStaff = "CREATE TABLE if not exists Staff ("
-                    + "StaffID VARCHAR(13) NOT NULL,"
+                    + "StaffID VARCHAR(13) NOT NULL AUTO_INCREMENT,"
                     + "Name VARCHAR(16) NOT NULL,"
                     + "Surname VARCHAR(255) NOT NULL,"
                     + "Gender VARCHAR(32) NOT NULL,"
@@ -53,9 +53,9 @@ public class StaffDatabase {
                     + "PRIMARY KEY (StaffID))";
 
             String updateTable = "INSERT INTO Staff (StaffID, Name, Surname, Gender, Email, Address, Course, Password) VALUES" +
-                    "('0192038948993','Natasha', 'James', 'Female', 'natasha@james.co.za', '22 lions head road', 'ADT', 'MYDOG!s2cute'),"+
-                    "('2637719021233','Larry', 'Wise', 'Male', 'larry@wise.co.za', '1 table mountain road', 'ITS', '@Ilovel0v3'),"+
-                    "('7890111178990','Bloomy', 'Xolo', 'Female', 'bloomy@xolo.ac.za', '22 lions head road', 'ADT', 'lotto!isaddictiv3');";
+                    "('NULL','Natasha', 'James', 'Female', 'natasha@james.co.za', '22 lions head road', 'ADT', 'MYDOG!s2cute'),"+
+                    "('NULL','Larry', 'Wise', 'Male', 'larry@wise.co.za', '1 table mountain road', 'ITS', '@Ilovel0v3'),"+
+                    "('NULL','Bloomy', 'Xolo', 'Female', 'bloomy@xolo.ac.za', '22 lions head road', 'ADT', 'lotto!isaddictiv3');";
 
 
             stmt.execute(sqlCreateStaff);
