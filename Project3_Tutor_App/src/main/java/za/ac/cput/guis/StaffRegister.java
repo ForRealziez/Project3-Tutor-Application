@@ -1,5 +1,7 @@
-import za.ac.cput.database.Staff;
+package za.ac.cput.guis;
 
+import za.ac.cput.database.StaffDatabase;
+import za.ac.cput.entity.staffRegister;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,8 +10,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.UUID;
 
 public class StaffRegister extends JDialog {
+    static String name;
     private JTextField tfName;
     private JTextField tfSurname;
     private JTextField tfGender;
@@ -45,13 +49,23 @@ public class StaffRegister extends JDialog {
         });
         setVisible(true);
     }
-
+    public staffRegister user;
     private void reset() {
+
+        tfName.setText("");
+        tfSurname.setText("");
+        tfGender.setText("");
+        tfEmail.setText("");
+        tfAddress.setText("");
+        tfCourse.setText("");
+        pfPassword.setText("");
+        pfConfirmPassword.setText("");
     }
 
     private void registerUser() {
-         String name = tfName.getText();
-         String surname = tfSurname.getText();
+         //String name = tfName.getText();
+         name = tfName.getText();
+        String surname = tfSurname.getText();
          String gender = tfGender.getText();
          String email = tfEmail.getText();
          String address = tfAddress.getText();
@@ -77,9 +91,12 @@ public class StaffRegister extends JDialog {
 
          user = addUserToDatabase(name, surname, gender, email, address, course, password);
          if(user != null){
+             JOptionPane.showMessageDialog(this,
+                     "Successfully Registered",
+                     "Success",
+                     JOptionPane.INFORMATION_MESSAGE);
              reset();
-         }
-         else {
+         } else {
              JOptionPane.showMessageDialog(this,
                      "Failed to register new user",
                      "try again",
@@ -87,58 +104,65 @@ public class StaffRegister extends JDialog {
          }
          
     }
-    public Staff user;
-    private Staff addUserToDatabase(String name, String surname, String gender, String email, String address, String course, String password) {
-        Staff user = null;
-        final String DB_URL = "jdbc:mysql://localhost:3306/";
+
+    private staffRegister addUserToDatabase(String name, String surname, String gender, String email, String address, String course, String password) {
+        staffRegister user = null;
+        final String DB_URL = "jdbc:mysql://localhost/projectApp";
         final String USERNAME = "root";
-        final String PASSWORD = "";
+        final String PASSWORD = "Giant123";
 
         try{
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 
-            Statement stmt = conn.createStatement();
-            String sql = "INSERT INTO users (name, surname, gender, email, address, course, password)" +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+
+            String sql = """
+                        INSERT INTO Staff (staffid, name, surname, gender, email, address, course, password)
+                        VALUES (?,?, ?, ?, ?, ?, ?, ?)""";
+
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2,surname);
-            preparedStatement.setString(3, gender);
-            preparedStatement.setString(4,email);
-            preparedStatement.setString(5,address);
-            preparedStatement.setString(6, course);
-            preparedStatement.setString(7, password);
+            String staffID = UUID.randomUUID().toString();
+            preparedStatement.setString(1, staffID);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3,surname);
+            preparedStatement.setString(4, gender);
+            preparedStatement.setString(5,email);
+            preparedStatement.setString(6,address);
+            preparedStatement.setString(7, course);
+            preparedStatement.setString(8, password);
 
             int addedRows = preparedStatement.executeUpdate();
             if (addedRows > 0){
-                user = new Staff();
-                user.name = name;
-                user.surname = surname;
-                user.gender = gender;
-                user.email = email;
-                user.address = address;
-                user.course = course;
-                user.password = password;
+                user = new staffRegister();
+                user.setStaffID(staffID);
+                user.setName(name);
+                user.setSurname(surname);
+                user.setGender(gender);
+                user.setEmail(email);
+                user.setPhysicalAddress(address);
+                user.setCourse(course);
+                user.setPassword(password);
             }
-            stmt.close();
             conn.close();
 
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
         return user;
     }
 
     public static void main(String[] args) {
         StaffRegister myForm = new StaffRegister(null);
-        Staff user = myForm.user;
+        staffRegister user = myForm.user;
         if(user != null){
-            System.out.println("Successful registration of: " + user.name);
+            System.out.println("Successful registration of: " + name);
         }
         else{
             System.out.println("Registration invalid");
         }
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

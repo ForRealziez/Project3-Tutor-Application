@@ -4,7 +4,7 @@ GUI for the TutorBooking
 Author: 214258041_Lelihle Gazi
  */
 
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+//import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import za.ac.cput.database.BookingDatabase;
 import za.ac.cput.database.TutorDatabase;
 import za.ac.cput.entity.Booking;
@@ -40,9 +40,6 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
     private BookingDatabase bookingDatabase;
     private Tutor[] arrtutors;
     private int startingId = 1;
-    private String imageName;
-
-    private JLabel lblImage;
     public TutorBookingGUI() throws SQLException, ClassNotFoundException {
         tutorDatabase = new TutorDatabase();
         bookingDatabase = new BookingDatabase();
@@ -70,8 +67,6 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         lblCourse = new JLabel ("Course");
         lblCourse.setForeground(Color.decode("#3AAFA9"));
         cmbCourse = new JComboBox (cmbCourseItems);
-        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Resource.png";
-        lblImage = new JLabel(new ImageIcon(imageName));
 
         lblCourseError = new JLabel ("*Required*");
         lblCourseError.setForeground(Color.decode("#3AAFA9"));
@@ -85,8 +80,8 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         btnHomePage = new JButton("Go to home");
 
 
-        AutoCompleteDecorator.decorate(cmbCourse);
-        AutoCompleteDecorator.decorate(cmbTutor);
+        //AutoCompleteDecorator.decorate(cmbCourse);
+        //AutoCompleteDecorator.decorate(cmbTutor);
 
         btnBook.setBackground(Color.decode("#3AAFA9"));
         btnBook.setForeground(Color.white);
@@ -112,7 +107,6 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         add(btnBook);
         add(btnDetails);
         add(btnHomePage);
-        add(lblImage);
 
         btnBook.addActionListener(this);
         btnDetails.addActionListener(this);
@@ -121,7 +115,6 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         //set component bounds
         lblHeader.setBounds (224, 10, 380, 30);
         lblSubHeader.setBounds (10, 55, 280, 25);
-        lblImage.setBounds(10,85,200,350 );
         lblCourse.setBounds (10, 85, 100, 25);
         cmbCourse.setBounds (10, 105, 100, 25);
         lblCourseError.setBounds (225, 105, 100, 25);
@@ -173,7 +166,7 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         }
         if(e.getSource() == btnHomePage){
             this.setVisible(false);
-            new za.ac.cput.guis.HomepageStudent().setGUI();
+            new za.ac.cput.gui.HomePageGUI().setVisible(true);
         }
     }
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
