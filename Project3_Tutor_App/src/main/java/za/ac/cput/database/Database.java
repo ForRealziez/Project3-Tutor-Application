@@ -78,6 +78,29 @@ public class Database {
             stmt.execute(sqlCreateStudent_credential);
             stmt.executeUpdate(updateTable1);
 
+//Create a tutor table for Tutor page
+            String sqlCreateTutor = "CREATE TABLE Tutors ("
+                    + "id int(20) NOT NULL AUTO_INCREMENT,"
+                    + "username varchar(20) NOT NULL,"
+                    + "email varchar(30) NOT NULL,"
+                    + "firstName varchar(20) NOT NULL,"
+                    + "lastName varchar(20) NOT NULL,"
+                    + "studentNumber varchar(20) NOT NULL,"
+                    + "dateCreated varchar(50) NOT NULL,"
+                    + "PRIMARY KEY (id))";
+
+//Create a tutor table for Booking page
+            String sqlCreateBooking = "CREATE TABLE Bookings ("
+                    + "id int(20) NOT NULL AUTO_INCREMENT,"
+                    + "tutorId varchar(50) NOT NULL,"
+                    + "courseId varchar(50) NOT NULL,"
+                    + "startDate varchar(20) NOT NULL,"
+                    + "endDate varchar(20) NOT NULL,"
+                    + "PRIMARY KEY (id))";
+
+            stmt.execute(sqlCreateBooking);
+
+
             System.out.println("Table Created......");
         }catch(SQLException e) {
             System.out.println("Table already created.");;
