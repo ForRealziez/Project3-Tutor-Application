@@ -89,6 +89,14 @@ public class Database {
                     + "dateCreated varchar(50) NOT NULL,"
                     + "PRIMARY KEY (id))";
 
+            String tutorTable = "INSERT INTO Tutors (id, username, email, firstName, lastName, studentNumber, dateCreated) VALUES" +
+                    "(NULL, 'leegazi', 'lee.gazi@gmail.com', 'Lee', 'Gazi', '21567789', '2022-08-07')," +
+                    "(NULL, 'frank', 'frank.jones@gmail.com', 'Frank', 'Jones', '21367890', '2022-07-20')," +
+                    "(NULL, 'soma58', 'soma@yahoo.com', 'Soma', 'Fisher', '2145889', '2022-08-07')";
+
+            stmt.execute(sqlCreateTutor);
+            stmt.executeUpdate(tutorTable);
+
 //Create a tutor table for Booking page
             String sqlCreateBooking = "CREATE TABLE Bookings ("
                     + "id int(20) NOT NULL AUTO_INCREMENT,"
@@ -98,20 +106,22 @@ public class Database {
                     + "endDate varchar(20) NOT NULL,"
                     + "PRIMARY KEY (id))";
 
+
+            String bookingTable = "INSERT INTO Bookings (id, tutorId, courseId, startDate, endDate) VALUES" +
+                    "(NULL, 1, 'ADP', '2022-08-07', '2022-08-10')," +
+                    "(NULL, 2, 'CMD', '2022-05-03', '2022-05-11')," +
+                    "(NULL, 3, 'PRM', '2022-07-01', '2022-08-01')";
+
             stmt.execute(sqlCreateTutor);
+
             stmt.execute(sqlCreateBooking);
+            stmt.executeUpdate(bookingTable);
 
 
             System.out.println("Table Created......");
         }catch(SQLException e) {
             System.out.println("Table already created.");;
         }
-
-
-
-
-
-
     }
 
 }
