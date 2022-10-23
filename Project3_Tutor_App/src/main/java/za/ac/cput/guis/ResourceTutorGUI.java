@@ -4,15 +4,14 @@ package za.ac.cput.guis;
  * ResourceGui.java
  * author Mogamad Taariq Phillips : 220166153
  */
-import za.ac.cput.database.Database;
-
+import za.ac.cput.guis.HomepageTutor;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 
 
-public class ResourceGUI extends JFrame implements ActionListener
+public class ResourceTutorGUI extends JFrame implements ActionListener
 {
     JLabel lblImage, lblHeading, lblItemName, lblDescription, lblOwner, lblAvailability;
     JComboBox cboItemName;
@@ -28,7 +27,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     ResultSet rs;
     String imageName, Availability, iName, Description, ownerContact;
 
-    public ResourceGUI()
+    public ResourceTutorGUI()
     {
         super("Resources");
 
@@ -49,7 +48,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         panelSouth = new JPanel();
         panelSouth.setBackground(Color.decode("#17252A"));
 
-        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/";
+        imageName = "Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Resource.png";
         lblImage = new JLabel(new ImageIcon(imageName));
         // Images will be of the selected item
 
@@ -151,7 +150,6 @@ public class ResourceGUI extends JFrame implements ActionListener
 
         panelCenter.add(panelAvailability);
 
-//        panelSouth.add(panelButton);
         panelSouth.add(btnNext);
         panelSouth.add(btnHome);
         panelSouth.add(btnExit);
@@ -163,7 +161,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         this.add(panelNorth, BorderLayout.NORTH);
         this.add(panelCenter, BorderLayout.CENTER);
         this.add(panelSouth, BorderLayout.SOUTH);
-        this.setSize(800, 850);
+        this.setSize(650, 650);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
@@ -221,7 +219,7 @@ public class ResourceGUI extends JFrame implements ActionListener
         else if (e.getSource() == btnHome)
         {
             dispose();
-            new za.ac.cput.gui.HomePageGUI().setGUI();
+            new HomepageTutor().setGUI();
         }
         else if (e.getSource() == btnExit)
         {
@@ -233,7 +231,7 @@ public class ResourceGUI extends JFrame implements ActionListener
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/tutorapp", "root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/projectapp", "root","");
             System.out.println("Database Connection Success");
         }
         catch (ClassNotFoundException ex)
