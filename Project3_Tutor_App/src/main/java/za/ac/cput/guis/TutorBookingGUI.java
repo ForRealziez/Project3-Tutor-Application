@@ -4,7 +4,7 @@ GUI for the TutorBooking
 Author: 214258041_Lelihle Gazi
  */
 
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+//import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import za.ac.cput.database.BookingDatabase;
 import za.ac.cput.database.TutorDatabase;
 import za.ac.cput.entity.Booking;
@@ -80,8 +80,8 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         btnHomePage = new JButton("Go to home");
 
 
-        AutoCompleteDecorator.decorate(cmbCourse);
-        AutoCompleteDecorator.decorate(cmbTutor);
+        //AutoCompleteDecorator.decorate(cmbCourse);
+        //AutoCompleteDecorator.decorate(cmbTutor);
 
         btnBook.setBackground(Color.decode("#3AAFA9"));
         btnBook.setForeground(Color.white);
@@ -166,7 +166,7 @@ public class TutorBookingGUI extends JPanel implements ActionListener {
         }
         if(e.getSource() == btnHomePage){
             this.setVisible(false);
-            new HomepageGUI().setVisible(true);
+            new za.ac.cput.gui.HomePageGUI().setVisible(true);
         }
     }
     public static void main(String[] args) throws SQLException, ClassNotFoundException {

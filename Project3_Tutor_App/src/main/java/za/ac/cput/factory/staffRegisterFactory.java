@@ -7,7 +7,7 @@ public class staffRegisterFactory {
     public static staffRegister createStaffRegister(String registerID, String name, String surname, String gender, String email, String physicalAddress, String course, String password, String confirmPassword) {
         String registrationID = Helper.generateSmallerId();
         staffRegister staffRegister = new staffRegister.Builder()
-                .setRegistration(registerID)
+                .setStaffId(registerID)
                 .setName(name)
                 .setSurname(surname)
                 .setGender(gender)

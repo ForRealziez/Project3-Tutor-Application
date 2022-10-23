@@ -2,7 +2,7 @@ package za.ac.cput.entity;
 
 public class staffRegister {
 
-    private String registrationID;
+    private String staffID;
     private String name;
     private String surname;
     private String gender;
@@ -12,11 +12,11 @@ public class staffRegister {
     private String password;
     private String confirmPassword;
 
-    private staffRegister(){}
+    public staffRegister(){}
 
     private staffRegister(Builder builder){
 
-        this.registrationID = builder.registrationID;
+        this.staffID = builder.staffID;
         this.name = builder.name;
         this.surname = builder.surname;
         this.gender = String.valueOf(builder.gender);
@@ -30,8 +30,8 @@ public class staffRegister {
     //GETTERS
 
 
-    public String getRegistrationID() {
-        return registrationID;
+    public String getStaffID() {
+        return staffID;
     }
 
     public String getName() {
@@ -69,8 +69,8 @@ public class staffRegister {
     //SETTERS
 
 
-    public void setRegistrationID(String registrationID) {
-        this.registrationID = registrationID;
+    public void setStaffID(String staffID) {
+        this.staffID = staffID;
     }
 
     public void setName(String name) {
@@ -108,7 +108,7 @@ public class staffRegister {
     @Override
     public String toString() {
         return "staffRegister{" +
-                "registrationID='" + registrationID + '\'' +
+                "staffID='" + staffID + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", gender='" + gender + '\'' +
@@ -121,7 +121,7 @@ public class staffRegister {
     }
 
     public static class Builder{
-        private String registrationID;
+        private String staffID;
         private String name;
         private String surname;
         private String gender;
@@ -131,8 +131,8 @@ public class staffRegister {
         private String password;
         private String confirmPassword;
 
-        public Builder setRegistration(String registrationID){
-            this.registrationID = registrationID;
+        public Builder setStaffId(String staffID){
+            this.staffID = staffID;
             return this;
         }
 
@@ -177,7 +177,7 @@ public class staffRegister {
         }
 
         public Builder copy (staffRegister register){
-            this.registrationID = register.registrationID;
+            this.staffID = register.staffID;
             this.name = register.name;
             this.surname = register.surname;
             this.gender = register.gender;
