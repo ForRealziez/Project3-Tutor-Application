@@ -21,11 +21,11 @@ public class BookingDatabase extends BaseConnection
 
         while (resultSet.next()){
             booking = BookingFactory.createBooking(resultSet.getString(1), resultSet.getString(2),
-                    resultSet.getString(3),resultSet.getString(4), resultSet.getString(5));
+                    resultSet.getString(3),resultSet.getString(4));
             break;
         }
 
-        Close();
+        //Close();
 
         return booking;
     }
@@ -38,11 +38,11 @@ public class BookingDatabase extends BaseConnection
 
         while (resultSet.next()){
             Booking booking = BookingFactory.createBooking(resultSet.getString(1), resultSet.getString(2),
-                    resultSet.getString(3),resultSet.getString(4), resultSet.getString(5));
+                    resultSet.getString(3),resultSet.getString(4));
             bookings.add(booking);
         }
 
-        Close();
+        //Close();
 
         return bookings;
     }
@@ -58,7 +58,7 @@ public class BookingDatabase extends BaseConnection
         statement.setString(5, booking.getEndDate());
 
         boolean result = statement.execute();
-        Close();
+        //Close();
 
         return result;
     }
@@ -73,7 +73,7 @@ public class BookingDatabase extends BaseConnection
         statement.setString(5,booking.getId());
 
         boolean result = statement.execute();
-        Close();
+        //Close();
 
         return result;
     }
@@ -85,7 +85,7 @@ public class BookingDatabase extends BaseConnection
 
         boolean result = statement.execute();
 
-        Close();
+        //Close();
 
         return result;
     }
