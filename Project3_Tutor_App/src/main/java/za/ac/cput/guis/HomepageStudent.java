@@ -190,10 +190,6 @@ public class HomepageStudent extends JFrame implements ActionListener {
 
         }}
 
-    public static void main(String[] args) {
-        HomepageStudent ho = new HomepageStudent();
-        ho.setGUI();
-    }
 
 }
 
