@@ -165,6 +165,7 @@ public class HomepageStudent extends JFrame implements ActionListener {
                 mainFrame.dispose();
                 new LoginA().setVisible(true);
                 break;
+
             }
 
 
