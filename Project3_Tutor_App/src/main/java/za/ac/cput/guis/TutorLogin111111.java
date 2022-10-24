@@ -210,7 +210,7 @@ public class TutorLogin111111 extends javax.swing.JFrame {
             
             
             dispose();
-            new HomepageStudent().setGUI();
+            new HomepageTutor().setGUI();
         }else{
             JOptionPane.showMessageDialog(rootPane, "Email / Password incorrect please try again");
         }   
