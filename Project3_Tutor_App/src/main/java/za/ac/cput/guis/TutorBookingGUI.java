@@ -35,6 +35,8 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
     private JButton btnDetails;
 
     private JButton btnHomePage;
+
+    private JLabel lblAppImage;
     private TutorDatabase tutorDatabase;
 
     private BookingDatabase bookingDatabase;
@@ -67,6 +69,7 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         lblCourse = new JLabel ("Course");
         lblCourse.setForeground(Color.decode("#3AAFA9"));
         cmbCourse = new JComboBox (cmbCourseItems);
+        lblAppImage = new JLabel(new ImageIcon("Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Background2pic.png"));
 
         lblCourseError = new JLabel ("*Required*");
         lblCourseError.setForeground(Color.decode("#3AAFA9"));
@@ -95,6 +98,7 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         this.setLayout (null);
 
 
+
         //add components
         add (lblHeader);
         add (lblSubHeader);
@@ -107,14 +111,18 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         add(btnBook);
         add(btnDetails);
         add(btnHomePage);
+        add(lblAppImage);
 
         btnBook.addActionListener(this);
         btnDetails.addActionListener(this);
         btnHomePage.addActionListener(this);
 
+        lblAppImage.setIcon(new ImageIcon("Project3_Tutor_App/src/main/java/za/ac/cput/guis/images/Background2pic.png"));
+
         //set component bounds
         lblHeader.setBounds (224, 10, 380, 30);
         lblSubHeader.setBounds (10, 55, 280, 25);
+        lblAppImage.setBounds(10,75, 200, 300 );
         lblCourse.setBounds (10, 85, 100, 25);
         cmbCourse.setBounds (10, 105, 100, 25);
         lblCourseError.setBounds (225, 105, 100, 25);
@@ -124,6 +132,7 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         lblTutorError.setBounds (225, 165, 100, 25);
         btnBook.setBounds(224,260,100,25);
         btnHomePage.setBounds(30,10,150,25);
+        this.getContentPane().setBackground(Color.decode("#17252A"));
         this.setSize(500,500);
         this.setLocationRelativeTo(null);
         this.pack();
@@ -148,7 +157,7 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
             }
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
-            Booking booking = BookingFactory.createBooking(String.valueOf(startingId),tutor.getId(),course,dtf.format(now),dtf.format(now));
+            Booking booking = BookingFactory.createBooking(tutor.getId(),course,dtf.format(now),dtf.format(now));
             try {
                 bookingDatabase.CreateBooking("insert into bookings values(?,?, ?,?, ?)",booking);
             } catch (SQLException ex) {

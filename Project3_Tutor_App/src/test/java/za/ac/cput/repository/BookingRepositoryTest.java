@@ -22,7 +22,7 @@ class BookingRepositoryTest {
         }
     }
 
-    private static Booking booking = BookingFactory.createBooking("214567682","LEE","ADP","2022-05-19", "2022-05-20");
+    private static Booking booking = BookingFactory.createBooking("214567682","LEE","ADP","2022-05-19");
 
 
     @Test
