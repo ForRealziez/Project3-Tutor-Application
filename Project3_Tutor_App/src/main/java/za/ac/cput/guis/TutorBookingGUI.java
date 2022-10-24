@@ -93,7 +93,7 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         //adjust size and set layout
         this.setPreferredSize (new Dimension (535, 335));
         this.setLayout (null);
-        this.setBackground(Color.decode("#17252A"));
+
 
         //add components
         add (lblHeader);
@@ -125,6 +125,7 @@ public class TutorBookingGUI extends JFrame implements ActionListener {
         btnBook.setBounds(224,260,100,25);
         btnHomePage.setBounds(30,10,150,25);
         this.setSize(500,500);
+        this.setLocationRelativeTo(null);
         this.pack();
         this.setVisible(true);
     }

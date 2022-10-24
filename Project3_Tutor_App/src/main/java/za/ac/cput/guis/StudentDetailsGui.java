@@ -24,6 +24,7 @@ public class StudentDetailsGui extends javax.swing.JFrame {
         initComponents();
         Connect();
         Student_Load();
+        this.setLocationRelativeTo(null);
 
     }
     Connection con;
@@ -106,6 +107,7 @@ public class StudentDetailsGui extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(23, 37, 42));

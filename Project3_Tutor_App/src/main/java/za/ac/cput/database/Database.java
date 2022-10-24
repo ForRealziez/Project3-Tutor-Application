@@ -16,7 +16,7 @@ public class Database {
     
     
     
-    public static void main(String[] args) throws SQLException {
+    public static void main() throws SQLException {
 
      
         // Creating the database
@@ -115,7 +115,7 @@ public class Database {
             stmt.execute(sqlCreateBooking);
             stmt.executeUpdate(bookingTable);
             
-            //sssssssssssssss
+            //Creating staff table for TutorLogin and register page
             String sqlCreateStaff = "CREATE TABLE Staff ("
                     + "StaffID int(11) NOT NULL AUTO_INCREMENT,"
                     + "Name varchar(16) NOT NULL,"
