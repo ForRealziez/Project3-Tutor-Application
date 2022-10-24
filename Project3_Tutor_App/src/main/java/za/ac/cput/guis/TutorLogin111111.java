@@ -1,6 +1,13 @@
 
 package za.ac.cput.guis;
 
+/**
+ *Titilayo Akinjole
+ *TutorLogin.java
+ *Due Date: 24 October 2022
+ *Subject: Project3
+ */
+
 import za.ac.cput.database.DBConnection;
 import java.awt.HeadlessException;
 import java.sql.Connection;

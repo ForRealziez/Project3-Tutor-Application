@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 /**
  *Chante Lewis
  *StudentDetailsGui.java
- *Due Date: 22 October 2022
+ *Due Date: 24 October 2022
  *Subject: Project3
  */
 public class StudentDetailsGui extends javax.swing.JFrame {
