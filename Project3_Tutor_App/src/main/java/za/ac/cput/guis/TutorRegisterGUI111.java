@@ -1,6 +1,11 @@
 
 package za.ac.cput.guis;
-
+/**
+ *Titilayo Akinjole
+ *TutorRegister.java
+ *Due Date: 24 October 2022
+ *Subject: Project3
+ */
 import za.ac.cput.database.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
