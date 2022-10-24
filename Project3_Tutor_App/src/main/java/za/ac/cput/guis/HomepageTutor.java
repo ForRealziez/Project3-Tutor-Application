@@ -165,7 +165,6 @@ public class HomepageTutor extends JFrame implements ActionListener {
                 mainFrame.dispose();
                 new LoginA().setVisible(true);
                 break;
-
                 }
 
             case "Student Details" -> {

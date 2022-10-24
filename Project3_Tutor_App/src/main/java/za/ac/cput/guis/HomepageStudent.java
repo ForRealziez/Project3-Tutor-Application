@@ -162,7 +162,6 @@ public class HomepageStudent extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
 
             case "Logout" -> {
-
                 mainFrame.dispose();
                 new LoginA().setVisible(true);
                 break;
