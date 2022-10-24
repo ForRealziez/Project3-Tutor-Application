@@ -114,6 +114,26 @@ public class Database {
                     "(NULL, 3, 'PRM', '2022-07-01', '2022-08-01')";
             stmt.execute(sqlCreateBooking);
             stmt.executeUpdate(bookingTable);
+            
+            //sssssssssssssss
+            String sqlCreateStaff = "CREATE TABLE Staff ("
+                    + "StaffID int(11) NOT NULL AUTO_INCREMENT,"
+                    + "Name varchar(16) NOT NULL,"
+                    + "Surname varchar(60) NOT NULL,"
+                    + "Email varchar(45) NOT NULL,"
+                    + "Course varchar(45) NOT NULL,"
+                    + "Password varchar(45) NOT NULL,"
+                    + "Re_Typr_Password varchar(20) NOT NULL,"
+                    + "PRIMARY KEY (StaffID))";
+
+            String updateTable2 = "INSERT INTO Staff (staffID, name, surname, email, course, password, re_Typr_Password) VALUES" +
+                    "(NULL,'Natasha', 'James', 'natasha@james.co.za', 'ADT', 'MYDOG!s2cute','MYDOG!s2cute'),"+
+                    "(NULL,'Larry', 'Wise', 'larry@wise.co.za', 'ITS', '@Ilovel0v3','@Ilovel0v3'),"+
+                    "(NULL,'Bloomy', 'Xolo', 'bloomy@xolo.ac.za', 'ADT', 'lotto!isaddictiv3','lotto!isaddictiv3');";
+
+
+            stmt.execute(sqlCreateStaff);
+            stmt.executeUpdate(updateTable2);
 
 
             System.out.println("Table Created......");

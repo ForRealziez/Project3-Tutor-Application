@@ -36,7 +36,7 @@ public class StaffDatabase {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             //Getting the connection
             String mysqlUrl = "jdbc:mysql://localhost/projectApp";
-            Connection con = DriverManager.getConnection(mysqlUrl, "root", PASS);
+            Connection con = DriverManager.getConnection(mysqlUrl, "root", "");
             Statement stmt = con.createStatement();
             System.out.println("Connection established......");
 
