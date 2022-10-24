@@ -260,7 +260,7 @@ public class TutorRegisterGUI111 extends javax.swing.JFrame {
         String course = jTextFieldCourseEnrolled.getText();
         String email = jTextFieldEmail.getText();
         String password = String.valueOf(jPasswordField.getText());
-        String confirmPassword = String.valueOf(jReTypePassword.getText());
+        String rtpass = String.valueOf(jReTypePassword.getText());
         
         try{
             Statement s = DBConnection.mycon().createStatement();
@@ -275,14 +275,16 @@ public class TutorRegisterGUI111 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Add a Email Address");
         }else if(password.equals("")){
             JOptionPane.showMessageDialog(null,"Add a password");
-        }else if(!password.equals(confirmPassword)){
+        }
+        else if(!password.equals(rtpass)){
             JOptionPane.showMessageDialog(null,"retype password");
-        }else{
+        }
+        else{
             
-           s.executeUpdate("INSERT INTO Staff(Name,Surname,Email,Course,Password)"
-                           + "VALUES('"+name+"','"+surname+"','"+email+"','"+course+"','"+password+"')");
+           s.executeUpdate("INSERT INTO Staff(Name,Surname,Email,Course,Password,Re_Typr_Password)"
+                           + "VALUES('"+name+"','"+surname+"','"+email+"','"+course+"','"+password+"','"+rtpass+"')");
            JOptionPane.showMessageDialog(rootPane, "Account created you'll proceed to login pane");
-            String staffID = UUID.randomUUID().toString();
+            //String staffID = UUID.randomUUID().toString();
            // pst.setString(staffID);
            this.setVisible(false);
            new TutorLogin111111().setVisible(true);
