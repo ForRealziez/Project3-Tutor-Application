@@ -294,10 +294,10 @@ public class TutorRegisterGUI111 extends javax.swing.JFrame {
              System.out.println(e);
         }
         
-        jTextFieldFirstName2.setText("");
-        jTextFieldLastName.setText("");
-        jTextFieldCourseEnrolled.setText("");
-        jTextFieldEmail.setText("");
+        //jTextFieldFirstName2.setText("");
+        //jTextFieldLastName.setText("");
+        //jTextFieldCourseEnrolled.setText("");
+        //jTextFieldEmail.setText("");
         jPasswordField.setText("");
         jReTypePassword.setText("");
     }//GEN-LAST:event_jButtonRegisterActionPerformed
