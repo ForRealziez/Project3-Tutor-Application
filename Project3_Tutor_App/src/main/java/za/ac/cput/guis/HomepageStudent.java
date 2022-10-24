@@ -9,6 +9,7 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.SQLException;
 
 public class HomepageStudent extends JFrame implements ActionListener {
 
@@ -171,8 +172,14 @@ public class HomepageStudent extends JFrame implements ActionListener {
 
             case "Tutors" -> {
 
-               //  new TutorBookingGUI.setVisible(true);
-                break;
+                mainFrame.dispose();
+                try {
+                    new TutorBookingGUI().setVisible(true);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+            }
             }
             case  "Resources" -> {
 
@@ -182,6 +189,11 @@ public class HomepageStudent extends JFrame implements ActionListener {
             }
 
         }}
+
+    public static void main(String[] args) {
+        HomepageStudent ho = new HomepageStudent();
+        ho.setGUI();
+    }
 
 }
 
